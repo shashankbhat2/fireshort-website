@@ -1,0 +1,162 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/ui/container.astro";
+import { Link } from "@/components/ui/link";
+import { FEATURES, PRICING_PLANS, SAMPLE_VIDEOS } from "@/lib/constants";
+import Card from "@/components/ui/Card.astro";
+import PricingCard from "@/components/ui/PricingCard.astro";
+import { Switch } from "@/components/ui/switch";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import PricingSection from "@/components/PricingSection.astro";
+---
+
+<Layout
+  title="Fireshort - Instantly Edit Shorts/Reels with Subtitles, B-Rolls, Transitions and Animations"
+>
+  <main class="font-sans">
+    <section
+      id="hero"
+      class="bg-gradient-to-b py-[100px] lg:py-[150px] from-[#6500E0] to-[#2A24D2] w-full h-full"
+    >
+      <Container class:list={["flex flex-col gap-[50px]"]}>
+        <div class="flex flex-col gap-5 justify-center items-center">
+          <h1
+            class="text-3xl leading-relaxed lg:text-[52px] font-bold text-white text-wrap text-center"
+          >
+            Instantly edit <span
+              class="bg-fireshort_red my-2 px-2 py-1 rounded-md translate-y-5 text-white"
+              >JAWDROPPING</span
+            > shorts and reels with Auto Subtitles, Auto B-Rolls etc.
+          </h1>
+          <p class="text-xl text-wrap text-center text-slate-200">
+            Get viewers hooked with perfectly timed subtitles. It's fast, it's
+            easy, and you can tailor it exactly to your style
+          </p>
+          <div class="flex flex-col justify-center items-center gap-4 w-full">
+            <Link
+              href="https://app.fireshort.in"
+              variant="destructive"
+              size="lg"
+              className="bg-fireshort_red p-2 w-[250px]">Edit Videos Now!</Link
+            >
+            <p class="text-sm text-slate-50">✨No Credit Card Required✨</p>
+          </div>
+        </div>
+        <div
+          class="min-w-full grid grid-cols-2 md:grid-cols-4 space-x-2 gap-2 justify-center items-center"
+        >
+          {
+            SAMPLE_VIDEOS.map((video) => (
+              <video class="rounded-md" src={video} autoplay muted />
+            ))
+          }
+        </div>
+      </Container>
+    </section>
+    <section id="features" class="bg-slate-100 h-full py-[50px]">
+      <div data-aos="fade-up">
+        <Container
+          class:list={["flex flex-col justify-center items-center gap-[50px]"]}
+        >
+          <div class="flex flex-col gap-5 justify-center items-center">
+            <span class="uppercase text-slate-400 text-sm font-bold"
+              >but why fireshort?</span
+            >
+            <h2
+              class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_red text-center capitalize"
+            >
+              Features that make editing shorts 10x FAAASTER
+            </h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {
+              FEATURES.map((feature) => (
+                <Card
+                  title={feature.title}
+                  desc={feature.desc}
+                  img={feature.img}
+                />
+              ))
+            }
+          </div>
+        </Container>
+      </div>
+    </section>
+    <section id="how-it-works" class="bg-[#2A24D2] h-full py-[100px]">
+      <Container>
+        <div
+          data-aos="fade-down"
+          class="flex flex-col-reverse md:flex-row gap-5 justify-between items-center"
+        >
+          <div class="flex flex-col gap-5">
+            <h2 class="text-4xl text-white font-bold">How it works?</h2>
+            <p class="text-wrap w-full md:w-3/4 text-white font-medium">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+              quaerat autem placeat vitae eveniet magni deserunt, iusto eius
+              asperiores sit voluptatem ipsum unde minus officiis error quia
+              illum inventore! Necessitatibus.
+            </p>
+            <Link
+              href="https://app.fireshort.in"
+              variant="destructive"
+              size="lg"
+              className="bg-fireshort_red p-2 w-[250px]">Signup Now!</Link
+            >
+          </div>
+          <div class="perspective-container w-full cursor-pointer">
+            <video
+              id="my-video"
+              class="w-full h-auto video-tilt"
+              preload="auto"
+              controls
+              playsinline
+            >
+              <source src="Cleo.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </Container>
+    </section>
+    <PricingSection />
+    <section
+      class="bg-gradient-to-r from-[#6500E0] to-purple-500 h-full py-[100px]"
+    >
+      <Container>
+        <div class="flex flex-col gap-5 justify-center items-start md:items-center">
+          <h1 class="text-2xl md:text-3xl text-slate-50 font-bold text-wrap">So why wait? Edit Shorts Now!</h1>
+          <p class="text-xl text-slate-200">
+            Quickly edit your shorts so you can focus on your main videos.
+          </p>
+          <Link
+            href="https://app.fireshort.in"
+            variant="destructive"
+            size="lg"
+            className="bg-fireshort_red p-2 w-[250px] font-bold">Signup</Link
+          >
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .perspective-container {
+    perspective: 1000px;
+    max-width: 640px;
+    margin: auto;
+  }
+
+  .video-tilt {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    border: 5px solid #6500e0;
+    overflow: hidden;
+    border-radius: 20px !important;
+    box-shadow: 0 0 20px #6500e0;
+    transform: rotateY(-5deg) rotateX(5deg);
+  }
+
+  .video-tilt:hover {
+    transform: rotateY(-10deg) rotateX(10deg);
+  }
+</style>

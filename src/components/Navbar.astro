@@ -1,0 +1,129 @@
+---
+import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import Container from "./ui/container.astro";
+import Dropdown from "./ui/dropdown.astro";
+import { Link } from "./ui/link";
+import { Image } from "astro:assets";
+import logo from "../assets/fireshort_logo.png";
+
+const menuitems = [
+  {
+    title: "Features",
+    path: "#",
+    children: [
+      { title: "Action", path: "/" },
+      { title: "Another action", path: "#" },
+      { title: "Dropdown Submenu", path: "#" },
+      { title: "404 Page", path: "/404" },
+    ],
+  },
+  {
+    title: "Use Cases",
+    path: "#",
+    children: [
+      { title: "Action", path: "/" },
+      { title: "Another action", path: "#" },
+      { title: "Dropdown Submenu", path: "#" },
+      { title: "404 Page", path: "/404" },
+    ],
+  },
+  {
+    title: "Pricing",
+    path: "/pricing",
+  },
+  {
+    title: "Affiliate",
+    path: "/affiliate",
+  },
+  {
+    title: "Contact",
+    path: "/contact",
+  },
+];
+---
+
+<div class="flex z-10 w-full fixed glassy">
+  <header
+    class="flex flex-col px-2 container mx-auto max-w-screen-xl font-sans lg:flex-row justify-between items-center p-4 "
+  >
+    <Astronav>
+      <div class="flex w-full lg:w-auto items-center justify-between z-10">
+        <a href="/" class="text-lg">
+          <Image
+            src={logo}
+            width={150}
+            height={150}
+            alt="A bird sitting on a nest of eggs."
+          />
+        </a>
+        <div class="flex justify-center items-center lg:hidden">
+          <MenuIcon class="w-6 h-6 text-slate-100" />
+        </div>
+      </div>
+      <MenuItems
+        class="hidden w-full lg:w-auto mt-2 items-center lg:flex lg:mt-0"
+      >
+        <ul class="flex flex-col lg:flex-row lg:gap-3">
+          {
+            menuitems.map((item, index) => (
+              <>
+                {item.children && (
+                  <Dropdown
+                    title={item.title}
+                    children={item.children}
+                    lastItem={index === menuitems.length - 1}
+                  />
+                )}
+
+                {!item.children && (
+                  <li>
+                    <a
+                      href={item.path}
+                      class="flex lg:px-3 font-medium py-2 lowercase items-center text-slate-100 hover:text-gray-900"
+                    >
+                      <span> {item.title}</span>
+                    </a>
+                  </li>
+                )}
+              </>
+            ))
+          }
+        </ul>
+        <div class="lg:hidden flex w-full items-center mt-3 gap-2">
+          <Link
+            className="bg-fireshort_red w-full text-white rounded-lg font-medium p-2 "
+            href="https://app.fireshort.in/register">Signup</Link
+          >
+          <Link
+            variant="ghost"
+            className="bg-white rounded-lg w-full font-medium p-2"
+            href="https://app.fireshort.in/login">Login</Link
+          >
+        </div>
+      </MenuItems>
+    </Astronav>
+    <div>
+      <div class="hidden lg:flex items-center w-full gap-2">
+        <Link
+          className="bg-fireshort_red w-full text-white rounded-lg font-medium p-2 "
+          href="https://app.fireshort.in/register">Signup</Link
+        >
+        <Link
+          variant="ghost"
+          className="bg-white rounded-lg  w-full font-medium p-2"
+          href="https://app.fireshort.in/login">Login</Link
+        >
+      </div>
+    </div>
+  </header>
+</div>
+
+<style>
+  .glassy {
+    width: 100%;
+    z-index: 1000;
+    background: rgba(75, 0, 130, 0.5);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  }
+</style>

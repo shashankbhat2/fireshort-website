@@ -1,0 +1,79 @@
+---
+// Import necessary scripts
+import { useState } from "react";
+
+// Component properties
+const {
+  direction = "left",
+  pauseOnHover = false,
+  reverse = false,
+  fade = false,
+  className,
+  innerClassName,
+  numberOfCopies = 10,
+  children,
+} = Astro.props;
+
+// Helper function to generate mask image style
+function getMaskImage(fade, direction) {
+  if (!fade) return undefined;
+  return `linear-gradient(${
+    direction === "left" ? "to right" : "to bottom"
+  }, transparent 0%, rgba(0, 0, 0, 1.0) 10%, rgba(0, 0, 0, 1.0) 90%, transparent 100%)`;
+}
+
+// Generate copies of the content
+const items = Array.from({ length: numberOfCopies }, (_, i) => i);
+
+// Prepare CSS classes
+const containerClasses = `group flex gap-[1rem] overflow-hidden ${
+  direction === "left" ? "flex-row" : "flex-col"
+} ${className || ""}`;
+
+const itemClasses = `flex justify-around gap-[1rem] [--gap:1rem] shrink-0 ${
+  direction === "left"
+    ? "animate-marquee-left flex-row"
+    : "animate-marquee-up flex-col"
+} ${pauseOnHover ? "group-hover:[animation-play-state:paused]" : ""}
+${reverse ? "direction-reverse" : ""} ${innerClassName || ""}`;
+---
+
+<div
+  class={containerClasses}
+  style={{
+    maskImage: getMaskImage(fade, direction),
+    WebkitMaskImage: getMaskImage(fade, direction),
+  }}
+>
+  {
+    items.map((i) => (
+      <div class={itemClasses}>
+        <slot />
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  @keyframes marquee-left {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes marquee-up {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+  .direction-reverse {
+    animation-direction: reverse;
+  }
+</style>
