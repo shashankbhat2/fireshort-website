@@ -1,13 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/ui/container.astro";
-import { Link } from "@/components/ui/link";
-import { FEATURES, PRICING_PLANS, SAMPLE_VIDEOS } from "@/lib/constants";
+import { Link } from "@/components/ui/react/link";
+import { FEATURES, SAMPLE_VIDEOS } from "@/lib/constants";
 import Card from "@/components/ui/Card.astro";
-import PricingCard from "@/components/ui/PricingCard.astro";
-import { Switch } from "@/components/ui/switch";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import PricingSection from "@/components/PricingSection.astro";
+import PricingSection from "@/components/ui/react/PricingSection";
 ---
 
 <Layout
@@ -16,7 +13,7 @@ import PricingSection from "@/components/PricingSection.astro";
   <main class="font-sans">
     <section
       id="hero"
-      class="bg-gradient-to-b py-[100px] lg:py-[150px] from-[#6500E0] to-[#2A24D2] w-full h-full"
+      class="bg-fireshort_secondary py-[100px] lg:py-[150px] w-full h-full"
     >
       <Container class:list={["flex flex-col gap-[50px]"]}>
         <div class="flex flex-col gap-5 justify-center items-center">
@@ -24,7 +21,7 @@ import PricingSection from "@/components/PricingSection.astro";
             class="text-3xl leading-relaxed lg:text-[52px] font-bold text-white text-wrap text-center"
           >
             Instantly edit <span
-              class="bg-fireshort_red my-2 px-2 py-1 rounded-md translate-y-5 text-white"
+              class="bg-fireshort_primary my-2 px-2 py-1 rounded-md translate-y-5 text-white"
               >JAWDROPPING</span
             > shorts and reels with Auto Subtitles, Auto B-Rolls etc.
           </h1>
@@ -37,23 +34,33 @@ import PricingSection from "@/components/PricingSection.astro";
               href="https://app.fireshort.in"
               variant="destructive"
               size="lg"
-              className="bg-fireshort_red p-2 w-[250px]">Edit Videos Now!</Link
+              className="bg-fireshort_primary p-2 w-[250px] shadow-md"
+              >Edit Videos Now!</Link
             >
-            <p class="text-sm text-slate-50">✨No Credit Card Required✨</p>
+            <p class="text-xs text-slate-50">
+              ✨No Credit Card Required. Free 3 videos/month✨
+            </p>
           </div>
         </div>
         <div
-          class="min-w-full grid grid-cols-2 md:grid-cols-4 space-x-2 gap-2 justify-center items-center"
+          class="min-w-full grid grid-cols-2 md:grid-cols-4 gap-2 justify-center items-center"
         >
           {
             SAMPLE_VIDEOS.map((video) => (
-              <video class="rounded-md" src={video} autoplay muted />
+              <video
+                class="rounded-md"
+                width="360"
+                height="640"
+                src={video}
+                autoplay
+                muted
+              />
             ))
           }
         </div>
       </Container>
     </section>
-    <section id="features" class="bg-slate-100 h-full py-[50px]">
+    <section id="features" class="bg-slate-100 h-full py-[150px]">
       <div data-aos="fade-up">
         <Container
           class:list={["flex flex-col justify-center items-center gap-[50px]"]}
@@ -63,9 +70,9 @@ import PricingSection from "@/components/PricingSection.astro";
               >but why fireshort?</span
             >
             <h2
-              class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_red text-center capitalize"
+              class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_primary text-center capitalize"
             >
-              Features that make editing shorts 10x FAAASTER
+              Features that make editing shorts 10x faaster
             </h2>
           </div>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -82,33 +89,33 @@ import PricingSection from "@/components/PricingSection.astro";
         </Container>
       </div>
     </section>
-    <section id="how-it-works" class="bg-[#2A24D2] h-full py-[100px]">
+    <section id="how-it-works" class="bg-slate-200 h-full py-[150px]">
       <Container>
         <div
           data-aos="fade-down"
-          class="flex flex-col-reverse md:flex-row gap-5 justify-between items-center"
+          class="flex flex-col-reverse gap-[50px] justify-center items-center"
         >
-          <div class="flex flex-col gap-5">
-            <h2 class="text-4xl text-white font-bold">How it works?</h2>
-            <p class="text-wrap w-full md:w-3/4 text-white font-medium">
+          <div
+            class="flex flex-col gap-5 text-slate-600 justify-center items-center"
+          >
+            <h2 class="text-4xl font-bold">How it works?</h2>
+            <p class="text-wrap w-full md:w-3/4 font-medium text-center">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
               quaerat autem placeat vitae eveniet magni deserunt, iusto eius
               asperiores sit voluptatem ipsum unde minus officiis error quia
               illum inventore! Necessitatibus.
             </p>
-            <Link
-              href="https://app.fireshort.in"
-              variant="destructive"
-              size="lg"
-              className="bg-fireshort_red p-2 w-[250px]">Signup Now!</Link
-            >
           </div>
-          <div class="perspective-container w-full cursor-pointer">
+          <div
+            class="perspective-container justify-center items-center w-full cursor-pointer"
+          >
             <video
               id="my-video"
-              class="w-full h-auto video-tilt"
+              class="video-tilt"
               preload="auto"
               controls
+              width="640"
+              height="360"
               playsinline
             >
               <source src="Cleo.mp4" type="video/mp4" />
@@ -117,13 +124,35 @@ import PricingSection from "@/components/PricingSection.astro";
         </div>
       </Container>
     </section>
-    <PricingSection />
-    <section
-      class="bg-gradient-to-r from-[#6500E0] to-purple-500 h-full py-[100px]"
-    >
+    <section id="pricing" class="bg-slate-100 h-full py-[150px]">
+      <div
+        data-aos="fade-up"
+        class="flex flex-col p-0 justify-center items-center gap-[50px]"
+      >
+        <div class="flex flex-col gap-5 justify-center items-center">
+          <span class="uppercase text-slate-400 text-sm font-bold"
+            >how much it costs tho?</span
+          >
+          <h2
+            class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_primary text-center capitalize"
+          >
+            Straight & Simple Pricing
+          </h2>
+          <a href="/pricing" class="text-muted-foreground text-md font-medium"
+            >Learn more about pricing here</a
+          >
+        </div>
+        <PricingSection client:visible />
+      </div>
+    </section>
+    <section class="bg-fireshort_secondary h-full py-[150px]">
       <Container>
-        <div class="flex flex-col gap-5 justify-center items-start md:items-center">
-          <h1 class="text-2xl md:text-3xl text-slate-50 font-bold text-wrap">So why wait? Edit Shorts Now!</h1>
+        <div
+          class="flex flex-col gap-5 justify-center items-start md:items-center"
+        >
+          <h1 class="text-2xl md:text-3xl text-slate-50 font-bold text-wrap">
+            So why wait? Edit Shorts Now!
+          </h1>
           <p class="text-xl text-slate-200">
             Quickly edit your shorts so you can focus on your main videos.
           </p>
@@ -131,7 +160,8 @@ import PricingSection from "@/components/PricingSection.astro";
             href="https://app.fireshort.in"
             variant="destructive"
             size="lg"
-            className="bg-fireshort_red p-2 w-[250px] font-bold">Signup</Link
+            className="bg-fireshort_primary p-2 w-[250px] font-bold tracking-widest uppercase shadow-md"
+            >Signup Now</Link
           >
         </div>
       </Container>
@@ -149,11 +179,8 @@ import PricingSection from "@/components/PricingSection.astro";
   .video-tilt {
     transition: transform 0.5s;
     transform-style: preserve-3d;
-    border: 5px solid #6500e0;
     overflow: hidden;
     border-radius: 20px !important;
-    box-shadow: 0 0 20px #6500e0;
-    transform: rotateY(-5deg) rotateX(5deg);
   }
 
   .video-tilt:hover {

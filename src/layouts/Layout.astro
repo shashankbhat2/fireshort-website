@@ -39,7 +39,7 @@ const makeTitle = title
     />
     <SEO
       title={makeTitle}
-      description="Astroship is a starter website template for Astro built with TailwindCSS."
+      description="With Fireshort, Instantly Add Subtitles, B-rolls, Music and Hook Titles with just one click!"
       canonical={canonicalURL}
       twitter={{
         creator: "@surjithctly",
@@ -62,23 +62,35 @@ const makeTitle = title
     <Navbar />
     <slot />
     <script src="../js/main"></script>
+    <script src="https://kit.fontawesome.com/63a0784023.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      window.$crisp = [];
+      window.CRISP_WEBSITE_ID = "96c2249b-c59e-479c-9317-289cfc0cc099";
+      (function () {
+        d = document;
+        s = d.createElement("script");
+        s.src = "https://client.crisp.chat/l.js";
+        s.async = 1;
+        d.getElementsByTagName("head")[0].appendChild(s);
+      })();
+    </script>
     <Footer />
-  </body><style is:global>
-    :root {
-      --accent: 136, 58, 234;
-      --accent-light: 224, 204, 250;
-      --accent-dark: 49, 10, 101;
-      --accent-gradient: linear-gradient(
-        45deg,
-        rgb(var(--accent)),
-        rgb(var(--accent-light)) 30%,
-        white 60%
-      );
-    }
-    html {
-      font-family: system-ui, sans-serif;
-      background: pink;
-      background-size: 224px;
-    }
-  </style>
+    <style is:global>
+      :root {
+        --accent: 136, 58, 234;
+        --accent-light: 224, 204, 250;
+        --accent-dark: 49, 10, 101;
+        --accent-gradient: linear-gradient(
+          45deg,
+          rgb(var(--accent)),
+          rgb(var(--accent-light)) 30%,
+          white 60%
+        );
+      }
+      html {
+        font-family: system-ui, sans-serif;
+        background-size: 224px;
+      }
+    </style>
+  </body>
 </html>

@@ -17,12 +17,12 @@ const { img, title, desc } = Astro.props;
 >
   {
     img && (
-      <div class="bg-gradient-to-b h-[150px] overflow-hidden flex justify-center items-center z-0 rounded-md from-[#6500E0] to-[#2A24D2] cursor-pointer hover-translate">
+      <div class="bg-slate-100 border h-[150px] overflow-hidden flex justify-center items-center z-0 rounded-md  cursor-pointer hover-translate">
         <Image width={100}  loading='lazy' height={100} src={img} alt={title} class="w-full object-cover h-auto" />
       </div>
     )
   }
-  <h2 class="font-bold mb-2 text-lg">{title}</h2>
+  <h2 class="font-bold mb-2 text-md capitalize">{title}</h2>
   <p>{desc}</p>
 </div>
 

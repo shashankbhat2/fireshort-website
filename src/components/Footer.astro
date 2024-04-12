@@ -2,12 +2,11 @@
 import { Image } from "astro:assets";
 import Container from "./ui/container.astro";
 import { FOOTER_LINKS } from "@/lib/constants";
-import { Twitter } from "lucide-react";
 ---
 
 <footer class="h-full py-[20px] font-sans bg-slate-800">
   <Container>
-    <div class="flex justify-between items-center text-white">
+    <div class="flex flex-col text-white">
       <Image
         src="/fireshort_logo.png"
         width={200}
@@ -15,16 +14,17 @@ import { Twitter } from "lucide-react";
         class="mix-blend-luminosity"
         alt="logo"
       />
-      <Twitter />
+      <div class="flex items-center">
+        <a href="https://twitter.com/fireshortapp"/>        </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-5 text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-[50px] text-white">
       {
         Object.entries(FOOTER_LINKS).map(([category, links]) => (
           <div class="flex flex-col">
             <h3 class="text-lg font-bold mb-2">{category}</h3>
             {links.map((link) => (
               <a
-                href={`${category.toLowerCase()}/${link.link}`}
+                href={`${category === "Product" ? "" : category.toLowerCase()}/${link.link}`}
                 class="mb-1 hover:text-blue-600"
               >
                 {link.title}
@@ -37,9 +37,9 @@ import { Twitter } from "lucide-react";
     <div
       class="flex flex-col gap-2 md:flex-row border-t py-4 justify-between items-start md:items-center border-slate-500"
     >
-      <p class="text-slate-400">&copy; Five Dollar Software Labs</p>
+      <p class="text-slate-400">&copy; Fireshort</p>
       <p class="text-slate-400">
-        Made with 💗 in <b>Bengaluru</b> by <a href="/"> <b>Bhat</b></a>
+        Made with ❤️ in <b>Bengaluru</b>
       </p>
     </div>
   </Container>

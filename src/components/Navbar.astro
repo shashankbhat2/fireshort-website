@@ -2,7 +2,7 @@
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import Container from "./ui/container.astro";
 import Dropdown from "./ui/dropdown.astro";
-import { Link } from "./ui/link";
+import { Link } from "./ui/react/link";
 import { Image } from "astro:assets";
 import logo from "../assets/fireshort_logo.png";
 
@@ -11,7 +11,7 @@ const menuitems = [
     title: "Features",
     path: "#",
     children: [
-      { title: "Action", path: "/" },
+      { title: "Auto Captions", path: "/" },
       { title: "Another action", path: "#" },
       { title: "Dropdown Submenu", path: "#" },
       { title: "404 Page", path: "/404" },
@@ -36,15 +36,15 @@ const menuitems = [
     path: "/affiliate",
   },
   {
-    title: "Contact",
-    path: "/contact",
+    title: "Blog",
+    path: "/blog",
   },
 ];
 ---
 
 <div class="flex z-10 w-full fixed glassy">
   <header
-    class="flex flex-col px-2 container mx-auto max-w-screen-xl font-sans lg:flex-row justify-between items-center p-4 "
+    class="flex flex-col px-2 container mx-auto max-w-screen-xl font-sans lg:flex-row justify-between items-center py-3"
   >
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between z-10">
@@ -57,11 +57,11 @@ const menuitems = [
           />
         </a>
         <div class="flex justify-center items-center lg:hidden">
-          <MenuIcon class="w-6 h-6 text-slate-100" />
+          <MenuIcon class="w-8 h-8 text-slate-100" />
         </div>
       </div>
       <MenuItems
-        class="hidden w-full lg:w-auto mt-2 items-center lg:flex lg:mt-0"
+        class="hidden w-full h-full lg:w-auto mt-2  items-center lg:flex lg:mt-0"
       >
         <ul class="flex flex-col lg:flex-row lg:gap-3">
           {
@@ -79,7 +79,7 @@ const menuitems = [
                   <li>
                     <a
                       href={item.path}
-                      class="flex lg:px-3 font-medium py-2 lowercase items-center text-slate-100 hover:text-gray-900"
+                      class="flex lg:px-3 font-medium py-2 lowercase items-center text-slate-100 hover:text-slate-500"
                     >
                       <span> {item.title}</span>
                     </a>
@@ -89,9 +89,9 @@ const menuitems = [
             ))
           }
         </ul>
-        <div class="lg:hidden flex w-full items-center mt-3 gap-2">
+        <div class="lg:hidden flex flex-col w-full items-center mt-3 gap-2">
           <Link
-            className="bg-fireshort_red w-full text-white rounded-lg font-medium p-2 "
+            className="bg-fireshort_primary w-full text-white rounded-lg font-medium p-2 "
             href="https://app.fireshort.in/register">Signup</Link
           >
           <Link
@@ -105,7 +105,7 @@ const menuitems = [
     <div>
       <div class="hidden lg:flex items-center w-full gap-2">
         <Link
-          className="bg-fireshort_red w-full text-white rounded-lg font-medium p-2 "
+          className="bg-fireshort_primary w-full text-white rounded-lg font-medium p-2 "
           href="https://app.fireshort.in/register">Signup</Link
         >
         <Link
@@ -122,8 +122,8 @@ const menuitems = [
   .glassy {
     width: 100%;
     z-index: 1000;
-    background: rgba(75, 0, 130, 0.5);
-    backdrop-filter: blur(15px);
+    background: rgba(63, 82, 227, 0.5);
+    backdrop-filter: blur(30px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
   }
 </style>

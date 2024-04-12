@@ -1,0 +1,68 @@
+---
+import Container from "@/components/ui/container.astro";
+import { Link } from "@/components/ui/react/link";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout
+  title="Fireshort - Instantly Edit Shorts/Reels with Subtitles, B-Rolls, Transitions and Animations"
+>
+  <main class="font-sans">
+    <section
+      id="hero"
+      class="bg-slate-50 py-[100px] lg:py-[150px] w-full h-full"
+    >
+      <Container class:list={["flex flex-col gap-[50px]"]}>
+        <div class="flex flex-col gap-5 justify-center items-center">
+          <span class="uppercase text-slate-400 text-sm font-bold"
+            >about us</span
+          >
+          <h2
+            class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_primary text-center capitalize"
+          >
+            Helping Video Creators to edit faaast
+          </h2>
+        </div>
+        <div class="text-muted-foreground">
+          <p class="text-xl">
+            At Fireshort, we understand that in the fast-paced world of digital
+            content, capturing the attention of your audience quickly is key.
+            Our innovative subtitling tool is designed to enhance accessibility
+            and engagement for short video content across various platforms.
+            Whether you're a content creator, a marketer, or a business looking
+            to expand your reach, Fireshort makes your videos more accessible
+            and engaging.
+          </p>
+          <br/>
+          <p class="text-md">
+            Simple Mission: to empower video content creators by
+            providing easy-to-use, efficient, and reliable subtitling solutions.
+            We believe that subtitles are not just a tool for understanding but
+            also an essential component for increasing viewer engagement and
+            expanding global reach. Fireshort is here to ensure that language
+            barriers do not hinder the powerful potential of video content.
+          </p>
+        </div>
+      </Container>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .perspective-container {
+    perspective: 1000px;
+    max-width: 640px;
+    margin: auto;
+  }
+
+  .video-tilt {
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    border-radius: 20px !important;
+  }
+
+  .video-tilt:hover {
+    transform: rotateY(-10deg) rotateX(10deg);
+  }
+</style>

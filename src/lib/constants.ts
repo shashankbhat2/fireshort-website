@@ -56,14 +56,15 @@ export const PRICING_PLANS = [
     isMonthly: true,
     features: [
       "3 videos/month",
-      "200MB Limit",
+      "100MB Limit",
       "90 Seconds Duration",
       "1080p Full HD Export",
+      "Chat Support",
       "Custom Templates",
     ],
   },
   {
-    price: 5,
+    price: 5.99,
     variant: "Creator",
     popular: true,
     isMonthly: true,
@@ -78,12 +79,28 @@ export const PRICING_PLANS = [
     ],
   },
   {
-    price: 10,
+    price: 19.99,
     variant: "Creator Plus",
     popular: false,
     isMonthly: true,
     features: [
       "100 videos/month",
+      "350MB Limit",
+      "3 Minute Duration",
+      "4K Export",
+      "Custom Templates",
+      "1:1 Support",
+      "No Watermark",
+    ],
+  },
+  {
+    price: 100,
+    variant: "Creator Lifetime Deal",
+    popular: false,
+    isMonthly: false,
+    features: [
+      "Unlimited Videos",
+      "10,000 AI Credits",
       "350MB Limit",
       "3 Minute Duration",
       "4K Export",
@@ -108,7 +125,7 @@ export const FOOTER_LINKS = {
     { link: "fireshort-vs-opusclip", title: "Fireshort vs OpusClip" },
     { link: "fireshort-vs-vidyoai", title: "Fireshort vs Vidyoai" },
     { link: "fireshort-vs-veed", title: "Fireshort vs Veed" },
-    { link: "other-tools", title: "Other Tools" },
+    { link: "all-tools", title: "All Tools" },
   ],
   Languages: [
     { link: "add-subtitles-in-english", title: "Add Subtitles in English" },
@@ -117,9 +134,9 @@ export const FOOTER_LINKS = {
     { link: "add-subtitles-in-french", title: "Add Subtitles in French" },
     { link: "add-subtitles-in-hindi", title: "Add Subtitles in Hindi" },
     { link: "add-subtitles-in-hinglish", title: "Add Subtitles in Hinglish" },
-    { link: "other-languages", title: "Other Languages" },
+    { link: "all-languages", title: "All Languages" },
   ],
-  "Free Tools": [
+  Tools: [
     { link: "add-subtitles-to-video", title: "Add Subtitles to Video" },
     { link: "instagram-caption-generator", title: "Instagram Caption Generator" },
     { link: "youtube-caption-generator", title: "Youtube Caption Generator" },
