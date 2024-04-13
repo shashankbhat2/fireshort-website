@@ -16,8 +16,8 @@ module.exports = {
     },
     extend: {
       colors: {
-        fireshort_primary: "#F12D2D",
-        fireshort_secondary: "#3F52E3",
+        fireshort_primary: "#F01414",
+        fireshort_secondary: "#3C3086",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
