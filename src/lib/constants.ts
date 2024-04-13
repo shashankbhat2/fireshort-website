@@ -1,51 +1,36 @@
-export const SAMPLE_VIDEOS = ["1.mp4", "2.mp4", "3.mp4", "4.mp4"];
+export const SAMPLE_VIDEOS = ["https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/1.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/MKBHD.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/hindi-2.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/Cleo.mp4"];
 
 export const FEATURES = [
   {
-    title: "Auto Subtitles with Trendy Templates",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    img: "/features/presets.png",
+    "title": "Auto Subtitles with Trendy Templates",
+    "desc": "Automatically generate precise subtitles with a choice of stylish templates, enhancing both readability and aesthetic appeal.",
+    "img": "/features/presets.png"
   },
   {
-    title: "Word Highlighting",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    img: "/features/highlight.png",
+    "title": "Word Highlighting",
+    "desc": "Engage your audience with word highlighting that enhances key phrases in subtitles to boost comprehension and retention.",
+    "img": "/features/highlight.png"
   },
   {
-    title: "Animated Emojis",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    img: "/features/emoji.png",
+    "title": "Animated Emojis",
+    "desc": "Bring your videos to life with animated emojis that add fun and expressiveness, perfectly synced with your subtitles.",
+    "img": "/features/emoji.png"
   },
   {
-    title: "Auto Generated B-rolls",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    img: "/features/broll.png",
+    "title": "Auto Generated B-rolls",
+    "desc": "Automatically integrate B-roll footage to enrich your narrative and keep the viewing experience dynamic and appealing.",
+    "img": "/features/broll.png"
   },
   {
-    title: "Eye catching transitions",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    img: "/features/transition.png",
+    "title": "Eye catching transitions",
+    "desc": "Smoothly connect scenes with eye-catching transitions that keep viewers engaged and ensure a seamless flow.",
+    "img": "/features/transition.png"
   },
   {
-    title: "Auto Generated Hook Title and Post Content",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-    img: "/features/title.png",
-  },
-  // {
-  //   title: "Chat with Transcript",
-  //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-  //   img: "/features/title.png",
-  // },
-  // {
-  //   title: "Cut Long Videos to Short",
-  //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-  //   img: "/features/title.png",
-  // },
-  // {
-  //   title: "Brand Kit",
-  //   desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor",
-  //   img: "/features/title.png",
-  // },
+    "title": "Auto Generated Hook Title and Post Content",
+    "desc": "Generate captivating hook titles and accompanying post content automatically, optimizing engagement from the first glance.",
+    "img": "/features/title.png"
+  }
 ];
 
 export const PRICING_PLANS = [
