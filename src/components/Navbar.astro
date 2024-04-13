@@ -54,10 +54,11 @@ const menuitems = [
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between z-10">
         <a href="/" class="text-lg">
-          <Image
-            src="/fireshort_logo.png"
-            width={150}
-            height={150}
+          <img
+            src="./logo.webp"
+            loading="lazy"
+            width={180}
+            height={180}
             alt="Fireshort Logo"
           />
         </a>
@@ -110,12 +111,12 @@ const menuitems = [
     <div>
       <div class="hidden lg:flex items-center w-full gap-2">
         <Link
-          className="bg-[#3A6DE6] w-full text-white rounded-lg font-medium p-2 "
+          className="bg-[#3A6DE6] w-[100px] text-white rounded-lg font-medium p-2 "
           href="https://app.fireshort.in/register">Signup</Link
         >
         <Link
           variant="ghost"
-          className="bg-[#F0F0F0] rounded-lg  w-full font-medium p-2"
+          className="bg-[#F0F0F0] rounded-lg  w-[100px] font-medium p-2"
           href="https://app.fireshort.in/login">Login</Link
         >
       </div>
