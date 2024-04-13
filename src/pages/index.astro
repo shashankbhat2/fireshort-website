@@ -5,6 +5,7 @@ import { Link } from "@/components/ui/react/link";
 import { FEATURES, SAMPLE_VIDEOS } from "@/lib/constants";
 import Card from "@/components/ui/Card.astro";
 import PricingSection from "@/components/ui/react/PricingSection";
+import { calculateRotation } from "@/lib/utils";
 ---
 
 <Layout
@@ -46,8 +47,9 @@ import PricingSection from "@/components/ui/react/PricingSection";
           class="min-w-full grid grid-cols-2 md:grid-cols-4 gap-2 justify-center items-center"
         >
           {
-            SAMPLE_VIDEOS.map((video) => (
+            SAMPLE_VIDEOS.map((video, i) => (
               <video
+              class={`rounded-md video-rotation rotate-${i % 5}`}
                 class="rounded-md"
                 width="360"
                 height="640"
@@ -111,7 +113,7 @@ import PricingSection from "@/components/ui/react/PricingSection";
               enhance viewer experience!
             </p>
           </div>
-          <!-- <div
+          <div
             class="perspective-container justify-center items-center w-full cursor-pointer"
           >
             <video
@@ -125,7 +127,7 @@ import PricingSection from "@/components/ui/react/PricingSection";
             >
               <source src="Cleo.mp4" type="video/mp4" />
             </video>
-          </div> -->
+          </div>
         </div>
       </Container>
     </section>
@@ -179,6 +181,26 @@ import PricingSection from "@/components/ui/react/PricingSection";
     perspective: 1000px;
     max-width: 640px;
     margin: auto;
+  }
+
+  .video-rotation {
+    transform-origin: center;
+  }
+
+  .rotate-0 {
+    transform: rotate(0deg);
+  }
+  .rotate-1 {
+    transform: rotate(-2deg);
+  }
+  .rotate-2 {
+    transform: rotate(2deg);
+  }
+  .rotate-3 {
+    transform: rotate(-3deg);
+  }
+  .rotate-4 {
+    transform: rotate(3deg);
   }
 
   .video-tilt {
