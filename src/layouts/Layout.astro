@@ -18,9 +18,9 @@ const resolvedImageWithDomain = new URL(
 
 const { title } = Astro.props;
 
-const makeTitle = title
-  ? title + " | " + "Astroship"
-  : "Astroship - Starter Template for Astro with Tailwind CSS";
+const makeTitle = title 
+  ? title + " | " + "Fireshort - Instantly Edit Shorts/Reels with Subtitles, B-Rolls, Transitions and Animations"
+  : "Fireshort - Instantly Edit Shorts/Reels with Subtitles, B-Rolls, Transitions and Animations";
 ---
 
 <!doctype html>
@@ -35,6 +35,7 @@ const makeTitle = title
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"

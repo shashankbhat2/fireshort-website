@@ -1,4 +1,4 @@
-export const SAMPLE_VIDEOS = ["https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/1.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/MKBHD.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/hindi-2.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/Cleo.mp4"];
+export const SAMPLE_VIDEOS = ["https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/1.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/beast.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/hindi-2.mp4", "https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/MKBHD.mp4"];
 
 export const FEATURES = [
   {
@@ -49,7 +49,7 @@ export const PRICING_PLANS = [
     ],
   },
   {
-    price: 5.99,
+    price: 4.99,
     variant: "Creator",
     popular: true,
     isMonthly: true,

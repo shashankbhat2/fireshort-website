@@ -7,17 +7,17 @@ import { FOOTER_LINKS } from "@/lib/constants";
 <footer class="h-full py-[20px] font-sans bg-slate-800">
   <Container>
     <div class="flex flex-col text-white">
-      <Image
-        src="/fireshort_logo.png"
-        width={200}
-        height={200}
+      <img
+        src="/logo.webp"
+        width={150}
+        height={150}
         class="mix-blend-luminosity"
         alt="logo"
       />
       <div class="flex items-center">
         <a href="https://twitter.com/fireshortapp"/>        </div>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-[50px] text-white">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 py-[25px] text-white">
       {
         Object.entries(FOOTER_LINKS).map(([category, links]) => (
           <div class="flex flex-col">

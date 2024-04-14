@@ -1,10 +1,7 @@
 ---
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
-import Container from "./ui/container.astro";
 import Dropdown from "./ui/dropdown.astro";
 import { Link } from "./ui/react/link";
-import { Image } from "astro:assets";
-import logo from "../assets/fireshort_logo.png";
 
 const menuitems = [
   {
@@ -30,7 +27,6 @@ const menuitems = [
   {
     title: "How it works",
     path: "/#how-it-works",
-
   },
   {
     title: "Pricing",
@@ -47,9 +43,9 @@ const menuitems = [
 ];
 ---
 
-<div class="flex z-10 w-full fixed glassy">
+<div class="flex z-10 w-full fixed glassy" id="navbar">
   <header
-    class="flex flex-col px-2 container mx-auto max-w-screen-xl font-sans lg:flex-row justify-between items-center py-3"
+    class="flex flex-col px-4 container mx-auto max-w-screen-xl font-sans lg:flex-row justify-between items-center py-4"
   >
     <Astronav>
       <div class="flex w-full lg:w-auto items-center justify-between z-10">
@@ -57,8 +53,8 @@ const menuitems = [
           <img
             src="./logo.webp"
             loading="lazy"
-            width={180}
-            height={180}
+            width={150}
+            height={150}
             alt="Fireshort Logo"
           />
         </a>
@@ -101,8 +97,7 @@ const menuitems = [
             href="https://app.fireshort.in/register">Signup</Link
           >
           <Link
-            variant="ghost"
-            className="bg-[#F0F0F0] rounded-lg w-full font-medium p-2"
+            className="bg-[#F0F0F0] text-slate-600 rounded-lg hover:text-slate-100 w-full font-medium p-2"
             href="https://app.fireshort.in/login">Login</Link
           >
         </div>
@@ -115,8 +110,7 @@ const menuitems = [
           href="https://app.fireshort.in/register">Signup</Link
         >
         <Link
-          variant="ghost"
-          className="bg-[#F0F0F0] rounded-lg  w-[100px] font-medium p-2"
+          className="bg-[#F0F0F0] text-slate-600 rounded-lg  hover:text-slate-100 w-[100px] font-medium p-2"
           href="https://app.fireshort.in/login">Login</Link
         >
       </div>
@@ -128,8 +122,8 @@ const menuitems = [
   .glassy {
     width: 100%;
     z-index: 1000;
-    background: rgba(60, 81, 198, 0.2);
     backdrop-filter: blur(50px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    transition: background 0.3s; 
+    background: rgba(60, 81, 198, 0.4);
   }
 </style>
