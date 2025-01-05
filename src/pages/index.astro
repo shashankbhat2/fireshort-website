@@ -1,216 +1,165 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Container from "../components/ui/container.astro";
 import { Link } from "@/components/ui/react/link";
-import { FEATURES, SAMPLE_VIDEOS } from "@/lib/constants";
-import Card from "@/components/ui/Card.astro";
+import TabsSection from "@/components/ui/react/TabsSection";
+import FeaturesSection from "@/components/ui/react/FeatureSection";
+import WorkflowSection from "@/components/ui/react/Workflow";
+import UseCasesSection from "@/components/ui/react/UseCases";
+import AdditionalSections from "@/components/ui/react/AdditionalSections";
 import PricingSection from "@/components/ui/react/PricingSection";
-import { calculateRotation } from "@/lib/utils";
+import FAQSection from "@/components/ui/react/FAQSection";
 ---
 
 <Layout title="">
-  <main class="font-sans">
+  <main class="font-primary flex flex-col space-y-8 bg-brand-background min-h-screen pt-20">
     <section
       id="hero"
-      class="bg-fireshort_secondary py-[100px] lg:py-[150px] w-full h-full"
+      class="flex flex-col items-center justify-center min-h-[calc(100vh-5rem)] py-16 px-4"
     >
-      <Container class:list={["flex flex-col gap-[50px]"]}>
-        <div class="flex flex-col gap-5 justify-center items-center">
-          <h1
-            class="text-3xl leading-tight lg:text-[52px] font-bold text-white text-wrap text-center"
-          >
-           Add subtitles to your shorts/reels in seconds!
+      <div class="container mx-auto">
+        <div
+          class="flex flex-col items-center justify-center text-center gap-12 mb-16"
+        >
+          <h1 class="text-4xl md:text-6xl space-y-4  font-bold text-brand-gray-800">
+            <p>Transform Your</p>
+            <div class="relative inline-block w-[250px">
+              <span class="flip-text absolute left-0 top-0">
+                <span
+                  class="inline-block whitespace-nowrap bg-[#F01414] w-full text-white px-4 py-1 rounded-lg"
+                  >Audios</span
+                >
+              </span>
+              <span class="flip-text absolute left-0 top-0">
+                <span
+                  class="inline-block whitespace-nowrap bg-[#F01414] w-full text-white px-4 py-1 rounded-lg"
+                  >Podcasts</span
+                >
+              </span>
+              <span class="flip-text">
+                <span
+                  class="inline-block whitespace-nowrap bg-primary w-full text-white px-4 py-1 rounded-lg"
+                  >Videos</span
+                >
+              </span>
+            </div>
+            <br class="hidden sm:block"/>
+            <p>Into a Content Machine</p>
           </h1>
-          <p class="text-xl text-wrap text-center text-slate-200">
-            Get viewers hooked with perfectly timed subtitles. It's fast, it's
-            easy, and you can tailor it exactly to your style
+
+          <p class="text-xl text-brand-gray-600 max-w-2xl mx-auto">
+            Your AI content assistant that turns long-form content into
+            ready-to-publish social posts, articles, highlight clips, and
+            detailed analytics. Create weeks of content in minutes, not hours.
           </p>
-          <div class="flex flex-col justify-center items-center gap-4 w-full">
+
+          <div
+            class="flex flex-col sm:flex-row items-center gap-4 text-brand-gray-600"
+          >
+            <div class="flex items-center gap-2">
+              <svg
+                class="w-5 h-5 text-primary"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path></svg
+              >
+              <span>AI Video Editor</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg
+                class="w-5 h-5 text-primary"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path></svg
+              >
+              <span>Auto-Generated Content</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg
+                class="w-5 h-5 text-primary"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 13l4 4L19 7"></path></svg
+              >
+              <span>Smart transcript analysis</span>
+            </div>
+          </div>
+
+          <div class="flex justify-center">
             <Link
               href="https://app.fireshort.in"
               variant="destructive"
               size="lg"
-              className="bg-fireshort_primary p-4 text-lg w-auto font-black shadow-md"
-              >Edit Videos Now!</Link
+              className="bg-primary px-8 py-4 text-lg font-bold text-white rounded-lg hover:bg-primary/90 transition-colors"
             >
-            <div class="text-sm text-slate-50 flex flex-col gap-1 text-wrap text-center">
-              <span>No Credit Card Required✨</span>
-              <span>Free 3 videos/month✨</span>
-            </div>
+              Start Creating Now
+            </Link>
           </div>
         </div>
-        <div
-          class="min-w-full grid grid-cols-2 md:grid-cols-4 gap-2 justify-center items-center"
-        >
-          {
-            SAMPLE_VIDEOS.map((video, i) => (
-              <video
-                class={`rounded-md video-rotation rotate-${i}`}
-                width="360"
-                height="640"
-                src={video}
-                loop
-                autoplay
-                muted
-              />
-            ))
-          }
-          <h3 class="text-center"> The above videos are made with Fireshort</h3> 
+        <div class="w-full">
+          <TabsSection client:load />
         </div>
-      </Container>
-    </section>
-    <section id="features" class="bg-slate-100 h-full py-[150px]">
-      <div data-aos="fade-up">
-        <Container
-          class:list={["flex flex-col justify-center items-center gap-[50px]"]}
-        >
-          <div class="flex flex-col gap-5 justify-center items-center">
-            <span class="uppercase text-slate-400 text-sm font-bold"
-              >but why fireshort?</span
-            >
-            <h2
-              class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_primary text-center capitalize"
-            >
-              Features that make editing shorts 10x faaster
-            </h2>
-          </div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {
-              FEATURES.map((feature) => (
-                <Card
-                  title={feature.title}
-                  desc={feature.desc}
-                  img={feature.img}
-                />
-              ))
-            }
-          </div>
-        </Container>
       </div>
     </section>
-    <section id="how-it-works" class="bg-slate-200 h-full py-[150px]">
-      <Container>
-        <div
-          data-aos="fade-down"
-          class="flex flex-col-reverse gap-[50px] justify-center items-center"
-        >
-          <div
-            class="flex flex-col gap-5 text-slate-600 justify-center items-center"
-          >
-            <h2 class="text-4xl font-bold">How it works?</h2>
-            <p class="text-wrap w-full md:w-3/4 font-medium text-center">
-              Effortlessly add subtitles to your videos with our intuitive
-              subtitling tool! Simply upload your video, select your desired
-              language, and let our advanced AI technology automatically
-              generate accurate subtitles. Customize the appearance using our
-              range of stylish templates, make any necessary adjustments to the
-              text and timing, and once you're satisfied, hit 'Export'. Your
-              video is now ready to captivate and engage audiences on any
-              platform. Perfect for creators aiming to expand their reach and
-              enhance viewer experience!
-            </p>
-          </div>
-          <div
-            class="perspective-container justify-center items-center w-full cursor-pointer"
-          >
-            <video
-              id="my-video"
-              class="video-tilt"
-              preload="auto"
-              controls
-              width="640"
-              height="480"
-              playsinline
-            >
-              <source
-                src="https://pub-194d2c0cdee84861a1ef8ddb2c664ec4.r2.dev/1713049559968.mp4"
-                type="video/mp4"
-              />
-            </video>
-          </div>
-        </div>
-      </Container>
-    </section>
-    <section id="pricing" class="bg-slate-100 h-full py-[150px]">
-      <div
-        data-aos="fade-up"
-        class="flex flex-col p-0 justify-center items-center gap-[50px]"
-      >
-        <div class="flex flex-col gap-5 justify-center items-center">
-          <span class="uppercase text-slate-400 text-sm font-bold"
-            >how much it costs tho?</span
-          >
-          <h2
-            class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_primary text-center capitalize"
-          >
-            Straight & Simple Pricing
-          </h2>
-          <a href="/pricing" class="text-muted-foreground text-md font-medium"
-            >Learn more about pricing here</a
-          >
-        </div>
-        <PricingSection client:visible />
-      </div>
-    </section>
-    <section class="bg-fireshort_secondary h-full py-[150px]">
-      <Container>
-        <div
-          class="flex flex-col gap-5 justify-center items-start md:items-center"
-        >
-          <h1 class="text-2xl md:text-3xl text-slate-50 font-bold text-wrap">
-            So why wait? Edit Shorts Now!
-          </h1>
-          <p class="text-xl text-slate-200">
-            Quickly edit your shorts so you can focus on your main videos.
-          </p>
-          <Link
-            href="https://app.fireshort.in"
-            variant="destructive"
-            size="lg"
-            className="bg-fireshort_primary p-2 w-[250px] font-bold tracking-widest uppercase shadow-md"
-            >Signup Now</Link
-          >
-        </div>
-      </Container>
+    <section>
+      <FeaturesSection client:visible />
+      <WorkflowSection client:visible />
+      <UseCasesSection client:visible />
+      <AdditionalSections client:visible />
+      <PricingSection client:visible />
+      <FAQSection client:visible />
     </section>
   </main>
 </Layout>
 
 <style>
-  .perspective-container {
-    perspective: 1000px;
-    max-width: 640px;
-    margin: auto;
-  }
-
-  .video-rotation {
+  .flip-text {
+    animation: flipText 9s infinite;
     transform-origin: center;
+    display: block;
+    backface-visibility: hidden;
   }
 
-  .rotate-0 {
-    transform: rotate(0deg);
-  }
-  .rotate-1 {
-    transform: rotate(-2deg);
-  }
-  .rotate-2 {
-    transform: rotate(2deg);
-  }
-  .rotate-3 {
-    transform: rotate(-3deg);
-  }
-  .rotate-4 {
-    transform: rotate(3deg);
+  .flip-text:nth-child(1) {
+    animation-delay: 6s;
   }
 
-  .video-tilt {
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-    overflow: hidden;
-    border-radius: 20px !important;
+  .flip-text:nth-child(2) {
+    animation-delay: 3s;
   }
 
-  .video-tilt:hover {
-    transform: rotateY(-10deg) rotateX(10deg);
+  @keyframes flipText {
+    0%,
+    30% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
+    33%,
+    96% {
+      transform: rotateX(-90deg);
+      opacity: 0;
+    }
+    97%,
+    100% {
+      transform: rotateX(0deg);
+      opacity: 1;
+    }
   }
 </style>

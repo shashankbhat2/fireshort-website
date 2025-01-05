@@ -33,66 +33,50 @@ export const FEATURES = [
   }
 ];
 
+
+
 export const PRICING_PLANS = [
   {
     price: 0,
     variant: "Free",
     popular: false,
     isMonthly: true,
-    features: [
-      "3 videos/month",
-      "100MB Limit",
+    limits: [
+      "3 Videos",
+      "200MB Limit",
       "90 Seconds Duration",
-      "1080p Full HD Export",
-      "Chat Support",
-      "Custom Templates",
     ],
+    features: [
+      "Auto Subtitles with Animated"
+    ]
   },
   {
-    price: 4.99,
+    price: 10,
     variant: "Creator",
     popular: true,
     isMonthly: true,
-    features: [
-      "20 videos/month",
+    limits: [
+      "20 Videos",
       "300MB Limit",
-      "2 Minute Duration",
-      "1080p Full HD Export",
-      "Custom Templates",
-      "1:1 Support",
-      "No Watermark",
+      "2 minute duration/video",
     ],
+    features: [
+      "Auto Subtitles with Animated"
+    ]
   },
   {
-    price: 19.99,
+    price: 50,
     variant: "Creator Plus",
     popular: false,
     isMonthly: true,
-    features: [
-      "100 videos/month",
-      "350MB Limit",
-      "3 Minute Duration",
-      "4K Export",
-      "Custom Templates",
-      "1:1 Support",
-      "No Watermark",
-    ],
-  },
-  {
-    price: 100,
-    variant: "Creator Lifetime Deal",
-    popular: false,
-    isMonthly: false,
-    features: [
+    limits: [
       "Unlimited Videos",
-      "10,000 AI Credits",
-      "350MB Limit",
-      "3 Minute Duration",
-      "4K Export",
-      "Custom Templates",
-      "1:1 Support",
-      "No Watermark",
+      "300MB Limit",
+      "30 minute duration/video",
     ],
+    features: [
+      "Auto Subtitles with Animated"
+    ]
   },
 ];
 
@@ -130,3 +114,30 @@ export const FOOTER_LINKS = {
 //     { link: "tiktok-hashtag-generator", title: "Tiktok Hashtag Generator" },
 // ]
 };
+
+export const LONG_SUBTITLE_PRESETS = [
+  {
+    "name": "BASIC",
+    "preview_url": "",
+    "style": {},
+    "thumb": "/subtitle-basic.png"
+  },
+  {
+    "name": "HIGHLIGHT",
+    "preview_url": "",
+    "style": {},
+    "thumb": "/subtitle-highlight.png"
+  },
+  {
+    "name": "KARAOKE",
+    "preview_url": "",
+    "style": {},
+    "thumb": "/subtitle-karaoke.png"
+  },
+  {
+    "name": "OPACITY",
+    "preview_url": "",
+    "style": {},
+    "thumb": "/subtitle-opacity.png"
+  }
+]

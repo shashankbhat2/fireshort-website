@@ -5,7 +5,7 @@ module.exports = {
   prefix: "",
   theme: {
     fontFamily: {
-      sans: "Instrument Sans, sans-serif",
+      primary: ['Chivo', 'Geist', 'Inter', 'sans-serif'],
     },
     container: {
       center: true,
@@ -16,24 +16,43 @@ module.exports = {
     },
     extend: {
       colors: {
-        fireshort_primary: "#F01414",
-        fireshort_secondary: "#3C3086",
+        // Brand Colors
+        brand: {
+          primary: "#F01414",
+          secondary: "#3C3086",
+          background: "#FFFAEC",
+          black: "#000000",
+          white: "#FFFFFF",
+          gray: {
+            50: "#F9FAFB",
+            100: "#F3F4F6",
+            200: "#E5E7EB",
+            300: "#D1D5DB",
+            400: "#9CA3AF",
+            500: "#6B7280",
+            600: "#4B5563",
+            700: "#374151",
+            800: "#1F2937",
+            900: "#111827",
+          },
+        },
+        // Semantic Colors
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "#F01414",
+          foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#3C3086",
+          foreground: "#FFFFFF",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "#F01414",
+          foreground: "#FFFFFF",
         },
         muted: {
           DEFAULT: "hsl(var(--muted))",

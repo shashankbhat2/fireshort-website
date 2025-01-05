@@ -1,0 +1,243 @@
+---
+import { Check, X } from 'lucide-react';
+
+interface Props {
+  competitor: {
+    name: string;
+    logo?: string;
+    description: string;
+    features: Array<{
+      name: string;
+      description: string;
+      hasFeature: boolean;
+      note?: string;
+      category?: string;
+      highlight?: boolean;
+    }>;
+    pros: string[];
+    cons: string[];
+  };
+}
+
+const competitor = {
+  logo: "",
+  name: "VideoForge",
+  description: "Traditional video editing platform with manual content creation tools",
+  pros: [
+    "Extensive manual editing features",
+    "Professional-grade effects library",
+    "Strong community support"
+  ],
+  cons: [
+    "Time-consuming manual processes",
+    "Limited automation capabilities",
+    "Basic analytics features"
+  ],
+  features: [
+    {
+      category: "Content Creation",
+      name: "AI-Powered Automation",
+      description: "Automated video editing and content generation capabilities",
+      hasFeature: false,
+      note: "Manual editing only",
+      highlight: true
+    },
+    {
+      category: "Content Creation",
+      name: "Multi-Format Export",
+      description: "Export content in various formats for different platforms",
+      hasFeature: true,
+      note: "Limited format options"
+    },
+    {
+      category: "Analytics",
+      name: "Performance Tracking",
+      description: "Track content performance and engagement metrics",
+      hasFeature: true,
+      note: "Basic analytics"
+    },
+    {
+      category: "Analytics",
+      name: "AI Insights",
+      description: "AI-powered content performance predictions and recommendations",
+      hasFeature: false,
+      note: "Not available"
+    }
+  ]
+};
+
+// Group features by category
+const categories = competitor.features.reduce((acc, feature) => {
+  const category = feature.category || 'General';
+  if (!acc[category]) {
+    acc[category] = [];
+  }
+  acc[category].push(feature);
+  return acc;
+}, {} as Record<string, typeof competitor.features>);
+
+---
+
+<main class="font-primary min-h-screen pt-20">
+  <!-- Hero Section -->
+  <section class="py-20 px-4">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-brand-gray-800 mb-6">
+        FireShort vs {competitor.name}
+      </h1>
+      <p class="text-xl text-brand-gray-600 max-w-3xl mx-auto">
+        See how our AI-powered content creation platform compares to {competitor.name}.
+      </p>
+    </div>
+  </section>
+
+  <!-- Quick Overview -->
+  <section class="py-12 px-4 bg-gradient-to-b from-white to-gray-50">
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- FireShort Card -->
+        <div class="bg-white p-8 rounded-lg border-2 border-primary">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-brand-gray-800">FireShort</h3>
+            <span class="px-4 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
+              Recommended
+            </span>
+          </div>
+          <p class="text-brand-gray-600 mb-6">
+            AI-powered platform that automates video editing, content creation, and analytics
+          </p>
+          <div class="space-y-3">
+            <div class="flex items-center gap-2 text-green-600">
+              <Check className="w-5 h-5" />
+              <span>Fully automated content creation</span>
+            </div>
+            <div class="flex items-center gap-2 text-green-600">
+              <Check className="w-5 h-5" />
+              <span>Multi-format output</span>
+            </div>
+            <div class="flex items-center gap-2 text-green-600">
+              <Check className="w-5 h-5" />
+              <span>Smart content analysis</span>
+            </div>
+            <div class="flex items-center gap-2 text-green-600">
+              <Check className="w-5 h-5" />
+              <span>Time-saving automation</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Competitor Card -->
+        <div class="bg-white p-8 rounded-lg border-2 border-brand-black">
+          <div class="flex items-center justify-between mb-6">
+            <h3 class="text-2xl font-bold text-brand-gray-800">
+              {competitor.name}
+            </h3>
+            {competitor.logo && (
+              <img 
+                src={competitor.logo}
+                alt={competitor.name}
+                class="h-8"
+              />
+            )}
+          </div>
+          <p class="text-brand-gray-600 mb-6">
+            {competitor.description}
+          </p>
+          <div class="space-y-3">
+            {competitor.pros.map(pro => (
+              <div class="flex items-center gap-2 text-green-600">
+                <Check className="w-5 h-5" />
+                <span>{pro}</span>
+              </div>
+            ))}
+            {competitor.cons.map(con => (
+              <div class="flex items-center gap-2 text-red-500">
+                <X className="w-5 h-5" />
+                <span>{con}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Comparison -->
+  <section class="py-16 px-4">
+    <div class="container mx-auto">
+      {Object.entries(categories).map(([categoryName, features]) => (
+        <div class="mb-12 last:mb-0">
+          <h2 class="text-2xl font-bold text-brand-gray-800 mb-6">
+            {categoryName}
+          </h2>
+          <div class="space-y-4">
+            {[features as any].map(feature => (
+              <div class={`bg-white p-6 rounded-lg border-2 ${feature.highlight ? 'border-primary' : 'border-brand-black'}`}>
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+                  <div class="md:col-span-4">
+                    <h3 class="text-lg font-bold text-brand-gray-800 mb-2">
+                      {feature.name}
+                    </h3>
+                    <p class="text-brand-gray-600">{feature.description}</p>
+                  </div>
+                  
+                  <div class="md:col-span-4">
+                    <div class="flex items-center gap-4">
+                      <div class="w-8 h-8 flex items-center justify-center">
+                        <Check className="w-6 h-6 text-green-500" />
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-brand-gray-800">FireShort</h4>
+                        <p class="text-sm text-brand-gray-600">Full capability</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="md:col-span-4">
+                    <div class="flex items-center gap-4">
+                      <div class="w-8 h-8 flex items-center justify-center">
+                        {feature.hasFeature ? (
+                          <Check className="w-6 h-6 text-green-500" />
+                        ) : (
+                          <X className="w-6 h-6 text-red-500" />
+                        )}
+                      </div>
+                      <div>
+                        <h4 class="font-bold text-brand-gray-800">
+                          {competitor.name}
+                        </h4>
+                        {feature.note && (
+                          <p class="text-sm text-brand-gray-600">
+                            {feature.note}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-gray-800 mb-6">
+        Ready to Try the Better Solution?
+      </h2>
+      <p class="text-xl text-brand-gray-600 mb-8 max-w-2xl mx-auto">
+        Experience the power of AI-driven content creation and save hours on your workflow.
+      </p>
+      <a
+        href="https://app.fireshort.in"
+        class="inline-block bg-primary px-8 py-4 text-lg font-bold text-white rounded-lg hover:bg-primary/90 transition-colors"
+      >
+        Start Creating Now
+      </a>
+    </div>
+  </section>
+</main>

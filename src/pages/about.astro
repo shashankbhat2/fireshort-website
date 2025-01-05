@@ -1,68 +1,72 @@
 ---
-import Container from "@/components/ui/container.astro";
-import { Link } from "@/components/ui/react/link";
-import Layout from "@/layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro";
+import { Building2, Users, Rocket, Heart } from 'lucide-react';
 ---
 
-<Layout
-  title="About Us"
->
-  <main class="font-sans">
-    <section
-      id="hero"
-      class="bg-slate-50 py-[100px] lg:py-[150px] w-full h-full"
-    >
-      <Container class:list={["flex flex-col gap-[50px]"]}>
-        <div class="flex flex-col gap-5 justify-center items-center">
-          <span class="uppercase text-slate-400 text-sm font-bold"
-            >about us</span
-          >
-          <h2
-            class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_primary text-center capitalize"
-          >
-            Helping Video Creators to edit faaast
-          </h2>
+<Layout title="About - AI Video Editor">
+  <main class="font-primary min-h-screen pt-20">
+    <!-- Hero Section -->
+    <section class="py-20 px-4">
+      <div class="container mx-auto text-center">
+        <h1 class="text-4xl md:text-6xl font-bold text-brand-gray-800 mb-6">
+          Revolutionizing Content <br class="hidden sm:block" />
+          Creation with AI
+        </h1>
+        <p class="text-xl text-brand-gray-600 max-w-3xl mx-auto">
+          We're building the best tools for content creation, making it easier for creators and marketing teams to produce engaging content at scale.
+        </p>
+      </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="py-16 px-4 bg-gradient-to-b from-white to-gray-50">
+      <div class="container mx-auto max-w-3xl text-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-brand-gray-800 mb-6">Our Mission</h2>
+            <p class="text-lg text-brand-gray-600 mb-6">
+              To democratize content creation by making professional-grade video editing and content repurposing accessible to everyone through the power of AI.
+            </p>
+          </div>
+      </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="py-16 px-4">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold text-brand-gray-800 text-center mb-12">Our Values</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {[
+            {
+              icon: Building2,
+              title: "Innovation",
+              description: "Pushing boundaries in AI and content creation"
+            },
+            {
+              icon: Users,
+              title: "Community",
+              description: "Building tools creators love to use"
+            },
+            {
+              icon: Rocket,
+              title: "Excellence",
+              description: "Delivering the highest quality results"
+            },
+            {
+              icon: Heart,
+              title: "Passion",
+              description: "Love for content creation and technology"
+            }
+          ].map((value) => (
+            <div class="bg-white p-6 rounded-lg border-2 border-brand-black hover:border-primary transition-colors">
+              <div class="text-primary mb-4">
+                <value.icon className="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-bold text-brand-gray-800 mb-2">{value.title}</h3>
+              <p class="text-brand-gray-600">{value.description}</p>
+            </div>
+          ))}
         </div>
-        <div class="text-muted-foreground">
-          <p class="text-xl">
-            At Fireshort, we understand that in the fast-paced world of digital
-            content, capturing the attention of your audience quickly is key.
-            Our innovative subtitling tool is designed to enhance accessibility
-            and engagement for short video content across various platforms.
-            Whether you're a content creator, a marketer, or a business looking
-            to expand your reach, Fireshort makes your videos more accessible
-            and engaging.
-          </p>
-          <br/>
-          <p class="text-md">
-            Simple Mission: to empower video content creators by
-            providing easy-to-use, efficient, and reliable subtitling solutions.
-            We believe that subtitles are not just a tool for understanding but
-            also an essential component for increasing viewer engagement and
-            expanding global reach. Fireshort is here to ensure that language
-            barriers do not hinder the powerful potential of video content.
-          </p>
-        </div>
-      </Container>
+      </div>
     </section>
   </main>
 </Layout>
-
-<style>
-  .perspective-container {
-    perspective: 1000px;
-    max-width: 640px;
-    margin: auto;
-  }
-
-  .video-tilt {
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-    overflow: hidden;
-    border-radius: 20px !important;
-  }
-
-  .video-tilt:hover {
-    transform: rotateY(-10deg) rotateX(10deg);
-  }
-</style>
