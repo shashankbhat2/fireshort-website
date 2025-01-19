@@ -10,19 +10,19 @@ const TabsSection = () => {
   const tabs = [
     {
       title: "Content Generation",
-      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      video: "https://pub-e33b432a715d43bf85bc84d655545d94.r2.dev/Content.mp4",
     },
     {
       title: "Highlight Clips",
-      video: "https://pub-e33b432a715d43bf85bc84d655545d94.r2.dev/Smart%20Clips.webm",
+      video: "https://pub-e33b432a715d43bf85bc84d655545d94.r2.dev/Clips.mp4",
     },
     {
       title: "AI Powered Video Editing",
-      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      video: "https://pub-e33b432a715d43bf85bc84d655545d94.r2.dev/Editor.mp4",
     },
     {
       title: "Auto B-rolls",
-      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      video: "https://pub-e33b432a715d43bf85bc84d655545d94.r2.dev/Brolls.mp4",   
     },
   ];
 
@@ -45,8 +45,8 @@ const TabsSection = () => {
   };
 
   return (
-    <section className="p-6 to-black">
-      <div className="container mx-auto max-w-6xl">
+    <section className="p-0 md:p-6 to-black">
+      <div className="md:container md:mx-auto md:max-w-6xl">
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -54,16 +54,36 @@ const TabsSection = () => {
           animate={isInView ? "visible" : "hidden"}
           className="relative"
         >
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+          <motion.div
+            variants={itemVariants}
+            className="mb-6 md:mb-8"
+          >
+            <div className="rounded-xl overflow-hidden backdrop-blur-xl backdrop-brightness-125 bg-gradient-to-br from-indigo-500/5 to-red-500/5 border border-indigo-500/20 shadow-xl transition-all duration-300">
+              <div className="aspect-video w-[500px]  md:w-full h-full bg-black/50 rounded-lg overflow-hidden">
+                <video 
+                  src={tabs[activeTab].video} 
+                  autoPlay 
+                  loop 
+                  muted 
+                  playsInline 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Tabs below video */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap justify-center gap-2 md:gap-4">
             {tabs.map((tab, index) => (
               <motion.button
                 key={index}
                 variants={itemVariants}
                 onClick={() => setActiveTab(index)}
                 className={`
-                  px-6 py-3 rounded-lg font-medium transition-all duration-300
+                  px-4 md:px-6 py-3 rounded-lg font-medium transition-all duration-300
                   backdrop-blur-xl backdrop-brightness-125
-                  border 
+                  border text-sm md:text-base
+                  w-full sm:w-auto
                   ${
                     activeTab === index
                       ? "bg-gradient-to-r from-red-500/20 to-red-600/20 border-red-500/50 text-white shadow-lg shadow-red-500/20 scale-105"
@@ -76,23 +96,6 @@ const TabsSection = () => {
               </motion.button>
             ))}
           </div>
-
-          <motion.div
-            variants={itemVariants}
-            className={`
-              rounded-xl
-              overflow-hidden
-              backdrop-blur-xl backdrop-brightness-125
-              bg-gradient-to-br from-indigo-500/5 to-red-500/5
-              border border-indigo-500/20
-              shadow-xl
-              transition-all duration-300
-            `}
-          >
-            <div className="aspect-video w-full bg-black/50 rounded-lg overflow-hidden">
-              <video src={tabs[activeTab].video} autoPlay loop muted playsInline className="w-full h-full object-cover" />
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </section>

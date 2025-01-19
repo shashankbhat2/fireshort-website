@@ -65,9 +65,9 @@ import FAQSection from "@/components/ui/react/FAQSection";
 
       <div class="absolute inset-0 bg-mesh-gradient opacity-5"></div>
 
-      <div class="container mx-auto relative z-[2]">
+      <div class="container md:mx-auto relative z-[2]">
         <div
-          class="flex flex-col items-center justify-center text-center gap-12 mb-12 relative max-w-4xl mx-auto"
+          class="flex flex-col items-center justify-center text-center gap-12 mb-12 relative  md:max-w-4xl mx-auto"
         >
           <div class="relative z-[1] p-2">
             <h1
@@ -77,7 +77,7 @@ import FAQSection from "@/components/ui/react/FAQSection";
             </h1>
 
             <p
-              class="text-lg text-zinc-400 max-w-2xl mx-auto mt-6 relative z-[2] p-6"
+              class="text-lg text-zinc-400 w-full md:max-w-2xl mx-auto mt-6 relative z-[2] p-6"
             >
               Your AI content platform that turns long-form content into
               ready-to-publish social posts, articles, highlight clips, and
@@ -112,7 +112,7 @@ import FAQSection from "@/components/ui/react/FAQSection";
       <WorkflowSection client:visible />
       <UseCasesSection client:visible />
       <AdditionalSections client:visible />
-      <div class="p-20">
+      <div class="p-4 md:p-20">
         <PricingSection client:visible />
       </div>
       <FAQSection client:visible />

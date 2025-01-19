@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 const FAQSection = () => {
-  const [openIndex, setOpenIndex] = useState(0);
-
   const faqs = [
     {
       question: "How does the AI content generation work?",
@@ -32,7 +34,7 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-black/95">
+    <section className="py-24 px-4 bg-black/95 z-10 relative">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">
@@ -43,42 +45,26 @@ const FAQSection = () => {
           </p>
         </div>
 
-        <div className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-4 z-50">
           {faqs.map((faq, index) => (
-            <div
+            <AccordionItem
               key={index}
-              className="bg-[#1E1E2E]/50 rounded-lg overflow-hidden
-                border border-[#2D2D3A] hover:border-indigo-500/30
-                shadow-lg hover:shadow-indigo-500/10
+              value={`item-${index}`}
+              className="bg-[#1E1E2E]/50 rounded-lg border border-[#2D2D3A] 
+                hover:border-indigo-500/30 shadow-lg hover:shadow-indigo-500/10 
                 transition-all duration-300"
             >
-              <button
-                onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-                className="w-full flex items-center justify-between p-6 text-left 
-                  hover:bg-[#2D2D3A]/30 transition-colors"
-              >
+              <AccordionTrigger className="px-6 hover:bg-[#2D2D3A]/30 transition-colors">
                 <span className="text-lg font-semibold text-white">
                   {faq.question}
                 </span>
-                <ChevronDown 
-                  className={`w-5 h-5 text-red-500 transition-transform duration-300 ${
-                    openIndex === index ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-              
-              <div 
-                className={`transition-all duration-300 ease-in-out ${
-                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="p-6 pt-0 text-gray-300">
-                  {faq.answer}
-                </div>
-              </div>
-            </div>
+              </AccordionTrigger>
+              <AccordionContent className="px-6 text-gray-300">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
           ))}
-        </div>
+        </Accordion>
       </div>
     </section>
   );

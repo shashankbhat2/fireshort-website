@@ -26,8 +26,8 @@ const Footer = () => {
   return (
     <div className="relative">
       <footer className="relative font-primary z-10 bg-[#0A0A0B] border-t border-[#2D2D3A]/30">
-        <div className="container mx-auto px-4 py-16 relative">
-          <div className="flex flex-col md:flex-row justify-between w-full">
+        <div className="container mx-auto px-4 py-16 relative"> 
+          <div className="flex flex-col md:flex-row justify-between w-full gap-12">
             <div className="flex flex-col gap-6">
               <div>
                 <img src="/logo.png" alt="Fireshort" className="h-12 w-auto" />
@@ -69,7 +69,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
+            <div className=" grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-10">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
                   <h3 className="font-bold text-lg text-white mb-4">

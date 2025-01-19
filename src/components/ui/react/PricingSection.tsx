@@ -44,7 +44,7 @@ const PricingSection = () => {
 
   return (
     <section>
-      <div className="container mx-auto">
+      <div className="md:container md:mx-auto">
         <div className="text-center mb-16">
           <h2 className="font-primary text-4xl font-bold text-white mb-4">
             Simple, Transparent Pricing
@@ -55,17 +55,16 @@ const PricingSection = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto gap-6 md:gap-0 px-4 md:px-0">
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`flex-1 p-8 flex flex-col backdrop-blur-xl backdrop-brightness-125 
-                ${index === 0 ? "rounded-l-xl md:rounded-r-none" : ""} 
-                ${index === plans.length - 1 ? "rounded-r-xl md:rounded-l-none" : ""}
-                ${index === 0 ? "md:rounded-r-none" : index === plans.length - 1 ? "md:rounded-l-none" : "rounded-none"}
+              className={`flex-1 p-8 flex flex-col backdrop-blur-xl backdrop-brightness-125 rounded-xl
+                ${index === 0 ? "md:rounded-r-none" : ""} 
+                ${index === plans.length - 1 ? "md:rounded-l-none" : ""}
                 ${
                   plan.popular
-                    ? "bg-red-500/5 border-red-500/20 shadow-2xl shadow-red-500/10 z-10 md:-mx-4 md:-my-4"
+                    ? "bg-red-500/5 border-red-500/20 shadow-2xl shadow-red-500/10 md:z-10 md:-mx-4 md:-my-4"
                     : "bg-indigo-500/5 border-indigo-500/10 shadow-xl"
                 }
                 border transition-all duration-300 relative
@@ -73,7 +72,7 @@ const PricingSection = () => {
               `}
             >
               {plan.popular && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 w-max">
                   <span className="bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-1 rounded-full text-sm font-medium
                     shadow-lg shadow-red-500/20 border border-red-500/50">
                     Most Popular

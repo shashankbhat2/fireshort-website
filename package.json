@@ -15,6 +15,7 @@
     "@astrojs/sitemap": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
     "@aws-sdk/client-sqs": "^3.556.0",
+    "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-select": "^2.0.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-switch": "^1.0.3",

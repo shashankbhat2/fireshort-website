@@ -108,7 +108,7 @@ export default function FeaturesSection() {
                 y: -8,
                 transition: { duration: 0.2 }
               }}
-              className={`group p-6 bg-[#1E1E2E]/50 backdrop-blur-lg rounded-lg 
+              className={`group p-4 bg-[#1E1E2E]/50 backdrop-blur-lg rounded-lg 
                 border border-indigo-500/20 hover:border-indigo-500/40
                 shadow-[0_0_15px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
                 transition-all duration-300
