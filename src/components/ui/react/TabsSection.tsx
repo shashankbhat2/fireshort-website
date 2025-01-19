@@ -1,43 +1,101 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 
 const TabsSection = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const tabs = [
-    "Smart Clips",
-    "Subtitles",
-    "B-rolls",
-    "Transcript",
-    "Content Generation"
+    {
+      title: "Content Generation",
+      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
+    {
+      title: "Highlight Clips",
+      video: "https://pub-e33b432a715d43bf85bc84d655545d94.r2.dev/Smart%20Clips.webm",
+    },
+    {
+      title: "AI Powered Video Editing",
+      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
+    {
+      title: "Auto B-rolls",
+      video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <div className="relative w-full -mb-32">
-      <div className="max-h-[650px] relative z-10">
-        <div className="grid gap-2 grid-cols-2 md:grid-cols-5 w-full mb-4">
-          {tabs.map((tab, index) => (
-            <button 
-              key={index}
-              className={`tab-button rounded-md border-brand-black border-2 duration-200 p-2
-                ${activeTab === index 
-                  ? 'bg-primary text-white' 
-                  : 'text-brand-gray-600 hover:border-primary hover:text-primary'
-                }
-                ${index === tabs.length - 1 ? 'col-span-2 md:col-span-1' : ''}
-              `}
-              onClick={() => setActiveTab(index)}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-        <div className="border-2 border-brand-black rounded-lg h-[600px] bg-white">
-          <div className="w-full h-full rounded-md bg-white flex items-center justify-center">
-            Video Content for {tabs[activeTab]}
+    <section className="p-6 to-black">
+      <div className="container mx-auto max-w-6xl">
+        <motion.div
+          ref={ref}
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="relative"
+        >
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            {tabs.map((tab, index) => (
+              <motion.button
+                key={index}
+                variants={itemVariants}
+                onClick={() => setActiveTab(index)}
+                className={`
+                  px-6 py-3 rounded-lg font-medium transition-all duration-300
+                  backdrop-blur-xl backdrop-brightness-125
+                  border 
+                  ${
+                    activeTab === index
+                      ? "bg-gradient-to-r from-red-500/20 to-red-600/20 border-red-500/50 text-white shadow-lg shadow-red-500/20 scale-105"
+                      : "bg-indigo-500/5 border-indigo-500/20 text-gray-300 hover:border-indigo-500/50 hover:text-white"
+                  }
+                  hover:shadow-lg hover:scale-105
+                `}
+              >
+                {tab.title}
+              </motion.button>
+            ))}
           </div>
-        </div>
+
+          <motion.div
+            variants={itemVariants}
+            className={`
+              rounded-xl
+              overflow-hidden
+              backdrop-blur-xl backdrop-brightness-125
+              bg-gradient-to-br from-indigo-500/5 to-red-500/5
+              border border-indigo-500/20
+              shadow-xl
+              transition-all duration-300
+            `}
+          >
+            <div className="aspect-video w-full bg-black/50 rounded-lg overflow-hidden">
+              <video src={tabs[activeTab].video} autoPlay loop muted playsInline className="w-full h-full object-cover" />
+            </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

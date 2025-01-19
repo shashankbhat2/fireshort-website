@@ -2,6 +2,7 @@
 import { SEO } from "astro-seo";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer";
+import CTABanner from "../components/CTABanner";
 
 import "@/styles/globals.css";
 
@@ -19,8 +20,10 @@ const resolvedImageWithDomain = new URL(
 
 const { title } = Astro.props;
 
-const makeTitle = title 
-  ? title + " | " + "Fireshort - Instantly Edit Shorts/Reels with Subtitles, B-Rolls, Transitions and Animations"
+const makeTitle = title
+  ? title +
+    " | " +
+    "Fireshort - Instantly Edit Shorts/Reels with Subtitles, B-Rolls, Transitions and Animations"
   : "Fireshort - Instantly Edit Shorts/Reels with Subtitles, B-Rolls, Transitions and Animations";
 ---
 
@@ -45,7 +48,8 @@ const makeTitle = title
         site: "@fireshort",
         card: "summary_large_image",
         image: resolvedImageWithDomain,
-        imageAlt: "Fireshort, Instantly Add Subtitles, B-rolls, Music and Hook Titles with just one click!",
+        imageAlt:
+          "Fireshort, Instantly Add Subtitles, B-rolls, Music and Hook Titles with just one click!",
       }}
       openGraph={{
         basic: {
@@ -59,11 +63,15 @@ const makeTitle = title
       }}
     />
   </head>
-  <body >
+  <body>
     <Navbar />
     <slot />
+    <CTABanner client:load />
     <script src="../js/main"></script>
-    <script defer src="https://us.umami.is/script.js" data-website-id="6d05643c-377f-4671-bfb3-9f1235b3606a"></script>
+    <script
+      defer
+      src="https://us.umami.is/script.js"
+      data-website-id="6d05643c-377f-4671-bfb3-9f1235b3606a"></script>
     <script defer type="text/javascript">
       window.$crisp = [];
       window.CRISP_WEBSITE_ID = "96c2249b-c59e-479c-9317-289cfc0cc099";

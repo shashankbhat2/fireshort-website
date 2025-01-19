@@ -2,7 +2,7 @@
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import { Link } from "./ui/react/link";
 import Dropdown from "./ui/dropdown.astro";
-import { Repeat, Scissors, FileText } from "lucide-react";
+
 const menuitems = [
   {
     title: "Features",
@@ -44,30 +44,26 @@ const menuitems = [
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 w-full z-20">
-  <nav class="px-4 py-2">
-    <div
-      class="flex flex-col container mx-auto px-4 md:px-8 rounded-md max-w-screen-xl font-primary lg:flex-row justify-between items-center bg-brand-background border-2 border-brand-black relative"
-    >
+<header class="fixed top-0 left-0 right-0 w-full z-20 mt-4">
+  <nav class="px-4 py-1">
+    <div class="flex flex-col container mx-auto px-6 py-2 md:px-8 rounded-xl max-w-5xl font-primary lg:flex-row justify-between items-center bg-[#0A0A0B]/80 backdrop-blur-lg border border-[#2D2D3A]/30 shadow-lg after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-gradient-to-r after:from-black after:via-indigo-600/50 after:to-black relative">
       <Astronav>
         <div class="flex w-full lg:w-auto items-center justify-between py-3">
-          <a href="/" class="text-lg">
+          <a href="/" class="text-lg group">
             <img
               src="/logo.png"
               loading="lazy"
               width={150}
               height={150}
               alt="Fireshort Logo"
-              class="w-32 h-auto"
+              class="w-32 h-auto group-hover:scale-105 transition-transform duration-300"
             />
           </a>
           <div class="flex items-center justify-center lg:hidden p-0">
-            <MenuIcon class="w-8 h-8 text-slate-800" />
+            <MenuIcon class="w-8 h-8 text-gray-300 hover:text-indigo-400 transition-colors" />
           </div>
         </div>
-        <MenuItems
-          class="lg:flex hidden w-full lg:w-auto lg:items-center lg:mt-0"
-        >
+        <MenuItems class="lg:flex hidden w-full lg:w-auto lg:items-center lg:mt-0">
           <div class="lg:flex lg:flex-row lg:items-center lg:gap-2">
             <ul class="flex flex-col lg:flex-row lg:gap-3 p-4 lg:p-0">
               {
@@ -81,7 +77,7 @@ const menuitems = [
                       />
                     ) : (
                       <a
-                        class="flex lg:px-3 font-medium py-2 lowercase items-center text-slate-800 hover:text-slate-600"
+                        class="flex lg:px-3 font-medium py-2 lowercase items-center text-gray-300 hover:text-indigo-400 transition-colors duration-300"
                         href={item.path}
                       >
                         <span>{item.title}</span>
@@ -94,13 +90,13 @@ const menuitems = [
 
             <div class="lg:hidden flex flex-col gap-2 p-4 mt-2">
               <Link
-                className="flex justify-center bg-primary text-white rounded-lg font-medium py-2 px-4 hover:bg-primary/90"
+                className="flex justify-center bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg font-medium py-2 px-4 shadow-lg hover:shadow-red-500/25 transition-all duration-300 hover:-translate-y-1"
                 href="https://app.fireshort.in/register"
               >
                 Signup
               </Link>
               <Link
-                className="flex justify-center bg-black text-white rounded-lg hover:text-slate-100 font-medium py-2 px-4"
+                className="flex justify-center bg-[#1E1E2E] text-white rounded-lg font-medium py-2 px-4 border border-[#2D2D3A] hover:border-indigo-500/30 hover:bg-[#2D2D3A] transition-all duration-300 hover:-translate-y-1"
                 href="https://app.fireshort.in/login"
               >
                 Login
@@ -112,13 +108,13 @@ const menuitems = [
 
       <div class="hidden lg:flex items-center gap-2">
         <Link
-          className="bg-primary text-white rounded-lg font-medium py-2 px-6 hover:bg-primary/90"
+          className="bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg font-medium py-2 px-6 shadow-lg hover:shadow-red-500/25 transition-all duration-300 hover:-translate-y-1"
           href="https://app.fireshort.in/register"
         >
           Signup
         </Link>
         <Link
-          className="bg-black text-white rounded-lg hover:text-slate-100 font-medium py-2 px-6"
+          className="bg-[#1E1E2E] text-white rounded-lg font-medium py-2 px-6 border border-[#2D2D3A] hover:border-indigo-500/30 hover:bg-[#2D2D3A] transition-all duration-300 hover:-translate-y-1"
           href="https://app.fireshort.in/login"
         >
           Login

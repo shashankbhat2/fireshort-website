@@ -1,39 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Building2, Users, Rocket, Heart } from 'lucide-react';
+import { Building2, Users, Rocket, Heart, Target, Zap, Shield, Trophy } from 'lucide-react';
 ---
 
-<Layout title="About - AI Video Editor">
-  <main class="font-primary min-h-screen pt-20">
+<Layout title="About - Fireshort">
+  <div class="fixed inset-0 z-[-1] bg-[#0A0A0B]" aria-hidden="true">
+    <div class="absolute inset-0 bg-[size:40px_40px] opacity-5 bg-grid-pattern"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1E1E2E]/30 via-[#2D2D3A]/20 to-[#0A0A0B]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(47,47,63,0.1),transparent_50%)]"></div>
+  </div>
+
+  <main class="font-primary flex flex-col space-y-0 bg-gradient-to-b from-transparent to-[#0A0A0B] min-h-screen pt-20">
     <!-- Hero Section -->
-    <section class="py-20 px-4">
+    <section class="py-20 px-4 relative">
       <div class="container mx-auto text-center">
-        <h1 class="text-4xl md:text-6xl font-bold text-brand-gray-800 mb-6">
-          Revolutionizing Content <br class="hidden sm:block" />
+        <h1 class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent mb-6">
+          Simplifying Content <br class="hidden sm:block" />
           Creation with AI
         </h1>
-        <p class="text-xl text-brand-gray-600 max-w-3xl mx-auto">
-          We're building the best tools for content creation, making it easier for creators and marketing teams to produce engaging content at scale.
+        <p class="text-lg text-gray-400 max-w-3xl mx-auto">
+          We're building the future of content creation, empowering creators and marketing teams to produce engaging content at scale with cutting-edge AI technology.
         </p>
       </div>
     </section>
 
     <!-- Mission Section -->
-    <section class="py-16 px-4 bg-gradient-to-b from-white to-gray-50">
-      <div class="container mx-auto max-w-3xl text-center">
-          <div>
-            <h2 class="text-3xl md:text-4xl font-bold text-brand-gray-800 mb-6">Our Mission</h2>
-            <p class="text-lg text-brand-gray-600 mb-6">
-              To democratize content creation by making professional-grade video editing and content repurposing accessible to everyone through the power of AI.
-            </p>
-          </div>
+    <section class="py-16 px-4 relative">
+      <div class="container mx-auto max-w-4xl text-center">
+        <div class="bg-[#1E1E2E]/30 backdrop-blur-sm border border-indigo-500/20 rounded-2xl p-8 shadow-lg">
+          <h2 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent mb-6">Our Mission</h2>
+          <p class="text-lg text-gray-400 mb-6">
+            To democratize content creation by making professional-grade video editing and content repurposing accessible to everyone through the power of AI.
+          </p>
+          <p class="text-lg text-gray-400">
+            We believe that every creator deserves access to powerful tools that can amplify their voice and reach their audience effectively.
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- Values Section -->
     <section class="py-16 px-4">
       <div class="container mx-auto">
-        <h2 class="text-3xl font-bold text-brand-gray-800 text-center mb-12">Our Values</h2>
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent text-center mb-12">Our Values</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {[
             {
@@ -57,12 +66,51 @@ import { Building2, Users, Rocket, Heart } from 'lucide-react';
               description: "Love for content creation and technology"
             }
           ].map((value) => (
-            <div class="bg-white p-6 rounded-lg border-2 border-brand-black hover:border-primary transition-colors">
-              <div class="text-primary mb-4">
+            <div class="bg-[#1E1E2E]/30 backdrop-blur-sm p-6 rounded-lg border border-indigo-500/20 hover:shadow-indigo-500/25 transition-all duration-300 hover:-translate-y-1">
+              <div class="text-indigo-500 mb-4">
                 <value.icon className="w-8 h-8" />
               </div>
-              <h3 class="text-xl font-bold text-brand-gray-800 mb-2">{value.title}</h3>
-              <p class="text-brand-gray-600">{value.description}</p>
+              <h3 class="text-xl font-bold text-white mb-2">{value.title}</h3>
+              <p class="text-gray-400">{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-16 px-4">
+      <div class="container mx-auto">
+        <h2 class="text-3xl font-bold bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent text-center mb-12">Why Choose Fireshort</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            {
+              icon: Target,
+              title: "AI-Powered Precision",
+              description: "Experience cutting-edge AI algorithms designed to transform your content while preserving its core message and quality."
+            },
+            {
+              icon: Zap,
+              title: "Lightning Fast",
+              description: "Say goodbye to hours of manual editing. Create weeks worth of content in minutes with our automated workflow."
+            },
+            {
+              icon: Shield,
+              title: "Enterprise-Grade Security",
+              description: "Rest easy knowing your content is protected with industry-standard encryption and robust security measures."
+            },
+            {
+              icon: Trophy,
+              title: "Early Access Benefits",
+              description: "Join our early access program to shape the future of content creation and enjoy exclusive features and pricing."
+            }
+          ].map((feature) => (
+            <div class="bg-[#1E1E2E]/30 backdrop-blur-sm p-8 rounded-lg border border-indigo-500/20 hover:shadow-indigo-500/25 transition-all duration-300 hover:-translate-y-1">
+              <div class="text-indigo-500 mb-4">
+                <feature.icon className="w-8 h-8" />
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">{feature.title}</h3>
+              <p class="text-gray-400">{feature.description}</p>
             </div>
           ))}
         </div>

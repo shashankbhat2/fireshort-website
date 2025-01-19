@@ -1,27 +1,40 @@
 ---
 import Container from "@/components/ui/container.astro";
-import { Link } from "@/components/ui/react/link";
 import Layout from "@/layouts/Layout.astro";
+import PricingSection from "@/components/ui/react/PricingSection";
 ---
 
-<Layout
-  title="Pricing"
->
-  <main class="font-sans">
-    <section id="pricing" class="bg-slate-100 h-full py-[150px]">
-      <div
-        data-aos="fade-up"
-        class="flex flex-col p-0 justify-center items-center gap-[50px]"
-      >
-        <div class="flex flex-col gap-5 justify-center items-center">
-          <span class="uppercase text-slate-400 text-sm font-bold"
-            >Pricing</span
-          >
-          <h2
-            class="text-xl md:text-3xl lg:text-5xl font-bold text-fireshort_primary text-center capitalize"
-          >
-            Straight & Simple Pricing
-          </h2>
+<Layout title="Pricing - Fireshort">
+  <div class="fixed inset-0 z-[-1] bg-[#0A0A0B]" aria-hidden="true">
+    <div class="absolute inset-0 bg-[size:40px_40px] opacity-20 bg-grid-pattern [mask-image:linear-gradient(to_bottom,white,transparent)]"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1E1E2E]/30 via-[#2D2D3A]/20 to-[#0A0A0B]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(47,47,63,0.2),transparent_50%)]"></div>
+  </div>
+  <main class="font-primary flex flex-col space-y-0 bg-gradient-to-b from-transparent to-[#0A0A0B] min-h-screen">
+    <section class="min-h-screen pt-32 pb-16 relative">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[#2D2D3A]/10 blur-[100px] rounded-full"></div>
+      <div class="absolute bottom-0 w-full h-[100%] bg-gradient-to-t from-[#0A0A0B] via-[#1E1E2E]/10 to-transparent blur-2xl z-[1]"></div>
+      
+      <div class="container mx-auto relative z-[2]">
+        <div
+          data-aos="fade-up"
+          class="flex flex-col p-0 justify-center items-center gap-[50px]"
+        >
+          <div class="flex flex-col gap-5 justify-center items-center">
+            <span class="font-secondary text-blue-500/80 text-sm font-bold tracking-wider uppercase">
+              Pricing Plans
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold bg-gradient-to-r from-white to-gray-100 bg-clip-text text-transparent">
+              Choose Your Plan
+            </h1>
+            <p class="text-lg text-gray-400 max-w-2xl mx-auto text-center">
+              Start for free, upgrade when you need more. No credit card required.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative z-[2] mt-16">
+          <PricingSection client:load />
         </div>
       </div>
     </section>

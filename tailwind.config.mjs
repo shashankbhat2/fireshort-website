@@ -5,7 +5,8 @@ module.exports = {
   prefix: "",
   theme: {
     fontFamily: {
-      primary: ['Chivo', 'Geist', 'Inter', 'sans-serif'],
+      primary: ['Bricolage Grotesque', 'Geist', 'Inter', 'sans-serif'],
+      secondary: ['Geist', 'Inter', 'sans-serif'],
     },
     container: {
       center: true,
@@ -15,6 +16,14 @@ module.exports = {
       },
     },
     extend: {
+      backgroundImage: {
+        'dot-pattern': 'radial-gradient(circle, rgba(240, 20, 20, 0.5) 2px, transparent 2px)',  // Light red dots using brand primary color
+        'arcade-grid': 'linear-gradient(to right, #232323 1px, transparent 1px), linear-gradient(to bottom, #232323 1px, transparent 1px)',
+        'glass-gradient': 'linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02))',
+      },
+      backgroundSize: {
+        'dot-pattern': '16px 16px',
+      },
       colors: {
         // Brand Colors
         brand: {
@@ -70,6 +79,18 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        arcade: {
+          primary: "#F01414",
+          secondary: "#3C3086",
+          neon: {
+            red: "#ff0044",
+            blue: "#0066ff",
+            purple: "#9900ff",
+            pink: "#ff00ff",
+          },
+        },
+        'arcade-neon-red': '#ff0044',
+        'arcade-neon-purple': '#9900ff',
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -85,10 +106,28 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        'neon-pulse': {
+          '0%, 100%': { opacity: 1 },
+          '50%': { opacity: 0.7 },
+        },
+        'arcade-float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        'neon-pulse': 'neon-pulse 2s ease-in-out infinite',
+        'arcade-float': 'arcade-float 3s ease-in-out infinite',
+        'float': 'float 6s ease-in-out infinite',
+      },
+      backdropBlur: {
+        'glass': '12px',
       },
     },
   },

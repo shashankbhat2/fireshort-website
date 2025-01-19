@@ -32,13 +32,13 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-brand-background">
+    <section className="py-24 px-4 bg-black/95">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-brand-gray-800 mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-xl text-brand-gray-600">
+          <p className="text-xl text-gray-300">
             Everything you need to know about our AI content platform
           </p>
         </div>
@@ -47,47 +47,37 @@ const FAQSection = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border-2 border-brand-black rounded-lg bg-white overflow-hidden"
+              className="bg-[#1E1E2E]/50 rounded-lg overflow-hidden
+                border border-[#2D2D3A] hover:border-indigo-500/30
+                shadow-lg hover:shadow-indigo-500/10
+                transition-all duration-300"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
-                className="w-full flex items-center justify-between p-6 text-left"
+                className="w-full flex items-center justify-between p-6 text-left 
+                  hover:bg-[#2D2D3A]/30 transition-colors"
               >
-                <span className="text-lg font-semibold text-brand-gray-800">
+                <span className="text-lg font-semibold text-white">
                   {faq.question}
                 </span>
                 <ChevronDown 
-                  className={`w-5 h-5 text-primary transition-transform ${
+                  className={`w-5 h-5 text-red-500 transition-transform duration-300 ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                 />
               </button>
               
               <div 
-                className={`transition-all duration-200 ease-in-out ${
+                className={`transition-all duration-300 ease-in-out ${
                   openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="p-6 pt-0 text-brand-gray-600">
+                <div className="p-6 pt-0 text-gray-300">
                   {faq.answer}
                 </div>
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="p-8 border-2 border-brand-black rounded-lg bg-white">
-            <h3 className="text-2xl font-bold text-brand-gray-800 mb-4">
-              Still have questions?
-            </h3>
-            <p className="text-brand-gray-600 mb-6">
-              Can't find the answer you're looking for? Our team is here to help.
-            </p>
-            <button className="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors">
-              Contact Support
-            </button>
-          </div>
         </div>
       </div>
     </section>

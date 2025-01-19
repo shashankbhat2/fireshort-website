@@ -1,19 +1,55 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+import FeatureLayout from "../../layouts/FeatureLayout.astro";
+import { Link } from "@/components/ui/react/link";
+
+const features = [
+  {
+    title: "Smart Content Splitting",
+    description: "Automatically split long videos into engaging short-form content perfect for social media",
+    icon: "✂️",
+  },
+  {
+    title: "Multi-Platform Export",
+    description: "Export content optimized for different platforms like TikTok, Instagram, and YouTube Shorts",
+    icon: "🎯",
+  },
+  {
+    title: "AI-Powered Suggestions",
+    description: "Get intelligent suggestions for the best moments to repurpose",
+    icon: "🤖",
+  },
+  {
+    title: "Custom Formatting",
+    description: "Maintain your brand identity with custom formatting options",
+    icon: "🎨",
+  },
+];
 ---
 
-<Layout title="Smart Video Editor">
-  <main class="font-primary bg-brand-background min-h-screen pt-20">
-    <section class="py-16 px-4">
-      <div class="container mx-auto">
-        <h1 class="text-4xl md:text-6xl font-bold text-brand-gray-800 mb-6">
-          Smart Video Editor
-        </h1>
-        <p class="text-xl text-brand-gray-600 max-w-3xl mx-auto">
-          Auto-generate subtitles and B-rolls for your videos to enhance engagement.
-        </p>
-        <!-- Add more content about this feature here -->
-      </div>
-    </section>
-  </main>
-</Layout>
+<FeatureLayout
+  title="Content Repurposing"
+  description="Transform your long-form videos into multiple pieces of engaging short-form content automatically"
+>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+    {
+      features.map((feature) => (
+        <div class="bg-black/40 backdrop-blur-sm border border-arcade-neon-purple/20 rounded-lg p-6 hover:border-arcade-neon-purple/40 transition-all duration-300">
+          <div class="text-4xl mb-4">{feature.icon}</div>
+          <h3 class="text-xl font-bold text-white mb-2">{feature.title}</h3>
+          <p class="text-gray-400">{feature.description}</p>
+        </div>
+      ))
+    }
+  </div>
+
+  <div class="text-center">
+    <Link
+      href="https://app.fireshort.in"
+      variant="destructive"
+      size="lg"
+      className="bg-arcade-neon-red px-8 py-4 text-lg font-bold text-white rounded-lg shadow-[0_0_25px_rgba(255,0,68,0.2)] hover:shadow-[0_0_35px_rgba(255,0,68,0.4)] transition-all duration-300 hover:-translate-y-1 border-2 border-arcade-neon-red/40"
+    >
+      Try Content Repurposing Now
+    </Link>
+  </div>
+</FeatureLayout> 
