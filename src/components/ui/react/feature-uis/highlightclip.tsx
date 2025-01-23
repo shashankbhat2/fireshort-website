@@ -93,7 +93,7 @@ const HighlightClipUI = (props: Props) => {
             <img
               src={clip.thumbnail}
               alt={clip.title}
-              className="w-full w-[80px] md:w-[130px] object-cover"
+              className="w-full w-[75px] md:w-[130px] object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
             <div className="absolute bottom-2 right-2 bg-black/60 text-white text-xs px-2 py-1 rounded-full backdrop-blur-sm">

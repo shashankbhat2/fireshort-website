@@ -22,7 +22,7 @@ const PricingSection = () => {
       features: [
         "All Free Features",
         "300 Minutes of Video/Audio processing",
-        "1M Words of Content Generation",
+        "5M Words of Content Generation",
         "No Watermark",
         "Priority support",
       ],
@@ -35,7 +35,7 @@ const PricingSection = () => {
       features: [
         "All Pro Features",
         "6000 minutes of content processing",
-        "10M Words of Content Generation ",
+        "Unlimited Content Generation ",
         "Export in 4K",
         "Dedicated Support",
       ],

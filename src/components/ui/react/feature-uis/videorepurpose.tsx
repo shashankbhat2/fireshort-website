@@ -77,7 +77,7 @@ const VideoRepurposeUI = (props: Props) => {
       }}
     >
       <motion.div
-        className="bg-zinc-900/90 backdrop-blur-sm rounded-lg shadow-lg w-[250px] md:w-[350px] py-2"
+        className="bg-zinc-900/90 backdrop-blur-sm rounded-lg shadow-lg w-[230px] md:w-[350px] py-2"
         initial={false}
         whileHover={{ scale: 1.02 }}
       >

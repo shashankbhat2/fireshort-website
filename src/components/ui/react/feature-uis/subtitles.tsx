@@ -86,7 +86,7 @@ const SubtitleUI = (props: Props) => {
                     ? "bg-zinc-950 border-l-2 border-red-500"
                     : "bg-zinc-900"
                 } 
-                rounded-lg shadow-lg backdrop-blur-sm w-[300px] md:w-[350px] translate-z-0
+                rounded-lg shadow-lg backdrop-blur-sm w-[230px] md:w-[350px] translate-z-0
               `}
           style={{
             transformStyle: "preserve-3d",

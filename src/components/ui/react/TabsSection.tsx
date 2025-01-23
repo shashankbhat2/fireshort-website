@@ -4,6 +4,8 @@ import { useInView } from 'framer-motion';
 
 const TabsSection = () => {
   const [activeTab, setActiveTab] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -44,6 +46,20 @@ const TabsSection = () => {
     }
   };
 
+  // Add time update handler with combined progress calculation
+  const handleTimeUpdate = () => {
+    if (videoRef.current) {
+      const videoProgress = videoRef.current.currentTime / videoRef.current.duration;
+      const combinedProgress = ((activeTab + videoProgress) / tabs.length) * 100;
+      setProgress(combinedProgress);
+    }
+  };
+
+  // Add ended handler
+  const handleVideoEnded = () => {
+    setActiveTab((prev) => (prev + 1) % tabs.length);
+  };
+
   return (
     <section className="p-0 md:p-6 to-black">
       <div className="md:container md:mx-auto md:max-w-6xl">
@@ -59,14 +75,24 @@ const TabsSection = () => {
             className="mb-6 md:mb-8"
           >
             <div className="rounded-xl overflow-hidden backdrop-blur-xl backdrop-brightness-125 bg-gradient-to-br from-indigo-500/5 to-red-500/5 border border-indigo-500/20 shadow-xl transition-all duration-300">
-              <div className="aspect-video w-[500px]  md:w-full h-full bg-black/50 rounded-lg overflow-hidden">
+              <div className="aspect-video w-[500px] md:w-full h-full bg-black/50 rounded-lg overflow-hidden">
                 <video 
+                  ref={videoRef}
                   src={tabs[activeTab].video} 
                   autoPlay 
-                  loop 
+                  loop={false}
                   muted 
                   playsInline 
                   className="w-full h-full object-cover"
+                  onTimeUpdate={handleTimeUpdate}
+                  onEnded={handleVideoEnded}
+                />
+              </div>
+              {/* Add progress bar */}
+              <div className="w-full h-1 bg-gray-800">
+                <div 
+                  className="h-full bg-gradient-to-r from-red-500 to-red-600 transition-all duration-300 ease-linear shadow-[0_0_10px_rgba(239,68,68,0.7)] shadow-red-500"
+                  style={{ width: `${progress}%` }}
                 />
               </div>
             </div>

@@ -12,12 +12,9 @@ const EmptyUISection = (props: { children: React.ReactNode }) => (
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.6 }}
     whileHover={{ scale: 1.01 }}
-  >
-    
-    <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.3)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.3)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20" />
-    
+  >    
     <div className="absolute -top-8 -left-8 w-16 h-16 bg-indigo-500/20 rounded-full blur-xl" />
-    <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-purple-500/20 rounded-full blur-xl" />
+    <div className="absolute -bottom-8 -right-8 w-16 h-16 bg-purple-500/20 rounded-full blur-xl animate-pulse" />
     
     <div className="relative w-full h-full flex justify-center items-center backdrop-blur-sm">
       {props.children}
@@ -76,7 +73,7 @@ export default function FeaturesSection() {
   };
 
   return (
-    <section className="py-16 px-4 bg-transparent">
+    <section className="py-16 px-4 bg-zinc-950/50">
       <div className="container mx-auto">
         <motion.div 
           className="text-center mb-12"
@@ -108,7 +105,7 @@ export default function FeaturesSection() {
                 y: -8,
                 transition: { duration: 0.2 }
               }}
-              className={`group p-4 bg-[#1E1E2E]/50 backdrop-blur-lg rounded-lg 
+              className={`group p-4 bg-[#1E1E2E]/10 backdrop-blur-lg rounded-lg 
                 border border-indigo-500/20 hover:border-indigo-500/40
                 shadow-[0_0_15px_rgba(59,130,246,0.1)] hover:shadow-[0_0_20px_rgba(59,130,246,0.2)]
                 transition-all duration-300
